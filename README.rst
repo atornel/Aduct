@@ -20,8 +20,9 @@ Installation
 Quanta requires Gtk. So install it first if not already done. Then grab the latest version of Quanta 
 using PIP:
 
-.. code::
- $ pip install quanta
+.. code:: bash
+   
+   $ pip install quanta
 
 Getting Started
 ---------------
