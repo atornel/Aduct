@@ -19,8 +19,9 @@ Installation
 ------------
 Quanta requires Gtk. So install it first if not already done. Then grab the latest version of Quanta 
 using PIP:
-.. code:
-   $ pip install quanta
+
+.. code::
+ $ pip install quanta
 
 Getting Started
 ---------------
@@ -29,7 +30,7 @@ Learn to make the best use of Quanta with the docs.
 Contribution
 ------------
 Contributing is easy! A few way of doing so are given below:
-1. Use Quanta and report us bugs you encounter.
-2. Request new features.
-3. Improve documentation, add new articles, write better examples.
-4. Spend time with the source code and make it perfect.
+ 1. Use Quanta and report us bugs you encounter.
+ 2. Request new features.
+ 3. Improve documentation, add new articles, write better examples.
+ 4. Spend time with the source code and make it perfect.
