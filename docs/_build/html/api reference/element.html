@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Element &mdash; Quanta 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Views" href="views.html" />
+    <link rel="prev" title="API Reference" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Quanta
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guide/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/making an application.html">Making an Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Element</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Views</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quanta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API Reference</a> &raquo;</li>
+        
+      <li>Element</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api reference/element.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-Quanta.Element">
+<span id="element"></span><h1>Element<a class="headerlink" href="#module-Quanta.Element" title="Permalink to this headline">¶</a></h1>
+<p>Element represents a individual block. It can hold a widget and handle operations with it.
+While setting and removing, a <cite>child_dict</cite> named dictionary is taken and returned. A valid
+<cite>child_dict</cite> is of the following structure.</p>
+<dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>child_dict = {</dt><dd><p>“child”: &lt;Gtk.Widget&gt;,
+“child_name”: &lt;str&gt;,
+“icon”: &lt;Gtk.Image&gt;,
+“header_child”: &lt;Gtk.Widget or None&gt;,
+“provider”: &lt;Quanta.Provider&gt;
+}</p>
+</dd>
+</dl>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a>`
+Here the optional key is only <cite>header_child</cite>. If it is None, it is not used. Other keys are
+compulsory and their absence raises a <cite>KeyError</cite>.</p>
+<dl class="class">
+<dt id="Quanta.Element.Element">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Element.</code><code class="sig-name descname">Element</code><span class="sig-paren">(</span><em class="sig-param">child_dict=None</em>, <em class="sig-param">use_action_button=True</em>, <em class="sig-param">pack_type=&lt;enum GTK_PACK_START of type Gtk.PackType&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Quanta.Element.Element.clear_child">
+<code class="sig-name descname">clear_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.clear_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the child at <cite>self</cite>.
+After clearing, <cite>child-cleared</cite> signal is emitted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_child">
+<code class="sig-name descname">get_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The child of <cite>self`or None if `self</cite> has no child.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Gtk.Widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_child_name">
+<code class="sig-name descname">get_child_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_child_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the name of child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The child name of <cite>self</cite> or None if <cite>self</cite> has no child.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_header_child">
+<code class="sig-name descname">get_header_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_header_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the child packed at the header of <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The header child of <cite>self</cite> or None if <cite>self</cite> has no header child.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Gtk.Widget</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_icon">
+<code class="sig-name descname">get_icon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the icon representing child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The icon of <cite>action_button</cite> or None if <cite>self</cite> has no icon for child..</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Gtk.Image</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the properties of child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The dictionary that can be later used to build the same interface.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.get_provider">
+<code class="sig-name descname">get_provider</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.get_provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the provider for child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The provider of <cite>self</cite> or <cite>None</cite> if <cite>self</cite> has no child.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Quanta.Provider</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – Raised when <cite>self</cite> has no child.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dictionary with child properties.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By removing a child, all its associated properties like icon, header child are also
+removed.
+A <cite>child-removed</cite> signal is emitted by <cite>self</cite> after removal.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_child">
+<code class="sig-name descname">set_child</code><span class="sig-paren">(</span><em class="sig-param">child_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the child in <cite>self</cite> from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child_dict</strong> (<em>dict</em>) – A valid dictionary with properties of child.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <cite>self</cite> already has a child, then its cleared before adding this new child.
+A <cite>child-added</cite> signal is emitted after addition.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_child_name">
+<code class="sig-name descname">set_child_name</code><span class="sig-paren">(</span><em class="sig-param">child_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_child_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the name of child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child_name</strong> (<em>str</em>) – The new name of child.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface of <cite>self</cite> from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<em>dict</em>) – The dictionary from which properties are set.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <cite>self</cite> already has a child, then its cleared before adding this new child.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_header_child">
+<code class="sig-name descname">set_header_child</code><span class="sig-paren">(</span><em class="sig-param">header_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_header_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the header child of <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>header_child</strong> (<em>Gtk.Widget</em>) – The new header child of <cite>self</cite>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using this method when <cite>self</cite> already has a header child leads to unexpected results.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_icon">
+<code class="sig-name descname">set_icon</code><span class="sig-paren">(</span><em class="sig-param">icon</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_icon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the icon of child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>icon</strong> (<em>Gtk.Image</em>) – The new icon of child.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Element.Element.set_provider">
+<code class="sig-name descname">set_provider</code><span class="sig-paren">(</span><em class="sig-param">provider</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Element.Element.set_provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the provider of child held by <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>provider</strong> (<em>Quanta.Provider</em>) – The new provider of child.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="views.html" class="btn btn-neutral float-right" title="Views" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, J Arun Mani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

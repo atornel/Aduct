@@ -1,0 +1,264 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Overview
+\end_layout
+
+\begin_layout Standard
+Let us now learn how to design a flexible interface using Quanta.
+ It isn't difficult, so let's get started.
+ An interface designed with Quanta is backed up by three things; providers,
+ views and elements.
+ The following sections describe them in an elaborate manner.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename overview.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Provider
+\end_layout
+
+\begin_layout Standard
+Provider is an object that can produce widgets.
+ They can be taken as a factory that can assemble and give you widgets when
+ required.
+ The provider owns every information about the widget it produces, so it
+ can easily produce duplicate widgets and also control them as required.
+ Apart from assembling widgets, they can also dissemble a widget when required.
+ A dissembling process ideally extracts information from a widget and then
+ destroys it.
+\end_layout
+
+\begin_layout Standard
+Widgets can however be stored (in memory), if making a widget is so tedious
+ compared to storing them.
+ So, you can also reuse a widget and make a new one only when you run 
+\emph on
+out of stock
+\emph default
+.
+ The process of dissembling a widget is called 
+\emph on
+clearing
+\emph default
+.
+ A widget produced by a provider is known as child.
+ In fact, the word 
+\emph on
+widget
+\emph default
+ is rarely used and instead the term 
+\emph on
+child
+\emph default
+ is used.
+\end_layout
+
+\begin_layout Subsection*
+Element
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename sample element.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Element is an container that can hold the child produced by a provider.
+ They are the front-end in an application, so any sort of interaction with
+ user happens via elements.
+ An element has an action button.
+ It is used to tweak the child in the element, like changing, removing,
+ clearing a child.
+ Action buttons are recommended, but can be avoided if you have any other
+ approach.
+ On the side of an element, you can also add short widgets like quick tool
+ buttons.
+ Ideally you can attach only one widget, so if you want to add multiple
+ widgets, put them inside a container like grid, box.
+ Elements can not be directly attached to an interface, they need a container
+ called views.
+\end_layout
+
+\begin_layout Subsection*
+View
+\end_layout
+
+\begin_layout Standard
+View is a container of children produced by providers.
+ Quanta comes with three basic views, that are enough for most of the use
+ cases.
+ New views can also be made easily if they don't satisfy your need.
+ The three views are :
+\end_layout
+
+\begin_layout Subsubsection*
+Bin
+\end_layout
+
+\begin_layout Standard
+A bin can contain only one child.
+ The child can either be another view or element.
+\end_layout
+
+\begin_layout Subsubsection*
+Paned
+\end_layout
+
+\begin_layout Standard
+A paned is a container that can hold two children, either in vertical or
+ horizontal direction.
+ Similar to a bin, paned can hold either a view or an element.
+ Paned contains a movable handle between its children, which can change
+ the 
+\emph on
+space 
+\emph default
+allocated to each child.
+\end_layout
+
+\begin_layout Subsubsection*
+Notebook
+\end_layout
+
+\begin_layout Standard
+A notebook can contain an arbitrary number of children, but they all should
+ be elements.
+ In a notebook, only one child is visible at a time and the visible child
+ can be changed using the tabs located on an edge.
+ Notebook also has action buttons, attached at either side of tabs or at
+ one side.
+ They are optional, so can be avoided if not needed.
+\end_layout
+
+\begin_layout Subsection*
+Framing an Application
+\end_layout
+
+\begin_layout Standard
+Now we describe how to create a convenient interface using Quanta.
+\end_layout
+
+\begin_layout Itemize
+Make all the basic things required to make the application, like collecting
+ plugins, user data.
+\end_layout
+
+\begin_layout Itemize
+From your plugins and own collection, make a list of providers which can
+ produce child widgets.
+\end_layout
+
+\begin_layout Itemize
+Design an interface that you find and a lot of users find convenient.
+ The interface designed should be using views and elements, with children
+ from providers.
+\end_layout
+
+\begin_layout Itemize
+Then connect the elements, views with 
+\emph on
+tweak
+\emph default
+ functions.
+ Tweak functions are those that can modify properties of views and elements.
+\end_layout
+
+\begin_layout Itemize
+Provide a way for the users to save and load interfaces using Quanta's built-in
+ functions.
+\end_layout
+
+\begin_layout Standard
+The above points do not explain how they are done practically, so let's
+ get our hands wet in a short tutorial in next chapter.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,37 @@
+Quanta package
+==============
+
+Subpackages
+-----------
+
+.. toctree::
+
+   Quanta.Views
+
+Submodules
+----------
+
+Quanta.Element module
+---------------------
+
+.. automodule:: Quanta.Element
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Quanta.Providers module
+-----------------------
+
+.. automodule:: Quanta.Providers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: Quanta
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Notebook &mdash; Quanta 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Paned" href="paned.html" />
+    <link rel="prev" title="Bin" href="bin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Quanta
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guide/making an application.html">Making an Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Classes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../element.html">Element</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Views</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bin.html">Bin</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Notebook</a></li>
+<li class="toctree-l4"><a class="reference internal" href="paned.html">Paned</a></li>
+<li class="toctree-l4"><a class="reference internal" href="view.html">View</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../provider.html">Provider</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../functions.html">Functions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Quanta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="../index.html">Classes</a> &raquo;</li>
+        
+          <li><a href="index.html">Views</a> &raquo;</li>
+        
+      <li>Notebook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/api reference/classes/views/notebook.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-Quanta.Views.Notebook">
+<span id="notebook"></span><h1>Notebook<a class="headerlink" href="#module-Quanta.Views.Notebook" title="Permalink to this headline">¶</a></h1>
+<p>Notebook is a view that can hold only children of type <a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>. With this
+restriction, there is no limitation in number of children it can hold.</p>
+<dl class="class">
+<dt id="Quanta.Views.Notebook.Notebook">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Views.Notebook.</code><code class="sig-name descname">Notebook</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gi.repository.Gtk.Notebook</span></code></p>
+<p>Makes a notebook based on given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – The values to be passed to <a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Notebook.html#Gtk.Notebook" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Notebook</span></code></a> from which <a class="reference internal" href="#module-Quanta.Views.Notebook" title="Quanta.Views.Notebook"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Notebook</span></code></a> is made.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">child</em>, <em class="sig-param">position=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the child <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child to be added to <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – Raised when <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> is not a <a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.change_child_label">
+<code class="sig-name descname">change_child_label</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.change_child_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the tab label for existing child.</p>
+<p>The text for new label is taken as the name of child of <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code>
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span></code>).
+It is set to <cite>No child</cite> when <cite>child</cite> has no name for its child
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span> <span class="pre">is</span> <span class="pre">None</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child whose tab label has to be changed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_action_button">
+<code class="sig-name descname">get_action_button</code><span class="sig-paren">(</span><em class="sig-param">pack_type</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_action_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the action button at given position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pack_type</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/enums.html#Gtk.PackType" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.PackType</span></code></a>) – The position from which action button has to retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The action button of <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a> if <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> has no action button.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Button.html#Gtk.Button" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Button</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_number_of_action_buttons">
+<code class="sig-name descname">get_number_of_action_buttons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_number_of_action_buttons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of action buttons present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of action buttons.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the interface properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with interface properties.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_tab">
+<code class="sig-name descname">get_tab</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_tab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a tab label for child.</p>
+<p>The text for new label is taken as the name of child of <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code>
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span></code>).
+It is set to <cite>No child</cite> when <cite>child</cite> has no name for its child
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span> <span class="pre">is</span> <span class="pre">None</span></code>).
+Based on position of tabs in <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>, the orientation of text in the label also varies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child which requires a tab label.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Label with text determined from <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html#Gtk.Label" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Label</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given child from <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child which has to be removed from <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – Raised when <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> is not present in <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.replace_child">
+<code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">old_child</em>, <em class="sig-param">new_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.replace_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing child with a new child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child present in <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code> which has to be replaced.</p></li>
+<li><p><strong>new_child</strong> (<a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The child that will replace the given existing child of <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – Raised when <code class="xref py py-obj docutils literal notranslate"><span class="pre">new_child</span></code> is not a <a class="reference internal" href="../element.html#module-Quanta.Element" title="Quanta.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.set_action_button">
+<code class="sig-name descname">set_action_button</code><span class="sig-paren">(</span><em class="sig-param">icon</em>, <em class="sig-param">pack_type</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.set_action_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the action button.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>icon</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Image.html#Gtk.Image" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Image</span></code></a>) – The icon to be placed in action button.</p></li>
+<li><p><strong>pack_type</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/enums.html#Gtk.PackType" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.PackType</span></code></a>) – The position of the action button.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The dictionary containig properties of interface.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – Raised when there is a mismatch of number of action buttons in properties and
+    <code class="xref py py-obj docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="paned.html" class="btn btn-neutral float-right" title="Paned" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bin.html" class="btn btn-neutral float-left" title="Bin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Atornel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

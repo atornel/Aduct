@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quanta.Views package &mdash; Quanta 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Quanta package" href="Quanta.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Quanta
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../guide/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/making an application.html">Making an Application</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Quanta</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Quanta.html">Quanta package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="Quanta.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Quanta.Views package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Quanta.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanta.html#module-Quanta.Element">Quanta.Element module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanta.html#module-Quanta.Providers">Quanta.Providers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Quanta.html#module-Quanta">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quanta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">Quanta</a> &raquo;</li>
+        
+          <li><a href="Quanta.html">Quanta package</a> &raquo;</li>
+        
+      <li>Quanta.Views package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api reference/Quanta.Views.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quanta-views-package">
+<h1>Quanta.Views package<a class="headerlink" href="#quanta-views-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Quanta.Views.Bin">
+<span id="quanta-views-bin-module"></span><h2>Quanta.Views.Bin module<a class="headerlink" href="#module-Quanta.Views.Bin" title="Permalink to this headline">¶</a></h2>
+<p>Quanta.Bin is a view that can hold only one child. The child can be either another view or
+Quanta.Element.</p>
+<dl class="class">
+<dt id="Quanta.Views.Bin.Bin">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Views.Bin.</code><code class="sig-name descname">Bin</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gi.repository.Gtk.Bin</span></code></p>
+<dl class="method">
+<dt id="Quanta.Views.Bin.Bin.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the child <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child to be added to <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>self</cite> already has a child.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Bin.Bin.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the interface properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with interface properties.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Bin.Bin.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given child from <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child which has to be removed from <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>child</cite> is not present in <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Bin.Bin.replace_child">
+<code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">old_child</em>, <em class="sig-param">new_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin.replace_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing child with a new child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child present in <cite>self</cite> which has to be replaced.</p></li>
+<li><p><strong>new_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child that will replace the given <cite>old_child</cite> of <cite>self</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Bin.Bin.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Bin.Bin.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<em>dict</em>) – The dictionary containig properties of interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Quanta.Views.Notebook">
+<span id="quanta-views-notebook-module"></span><h2>Quanta.Views.Notebook module<a class="headerlink" href="#module-Quanta.Views.Notebook" title="Permalink to this headline">¶</a></h2>
+<p>Quanta.Notebook is a view that can hold only children of type Quanta.Element. With this
+restriction, there is no limitation in number of children it can hold.</p>
+<dl class="class">
+<dt id="Quanta.Views.Notebook.Notebook">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Views.Notebook.</code><code class="sig-name descname">Notebook</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gi.repository.Gtk.Notebook</span></code></p>
+<dl class="attribute">
+<dt id="Quanta.Views.Notebook.Notebook.ACTION_BUTTON_ERROR">
+<code class="sig-name descname">ACTION_BUTTON_ERROR</code><em class="property"> = 'Expected {} action button{} for Notebook as per given properties, but got {}'</em><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.ACTION_BUTTON_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Quanta.Views.Notebook.Notebook.INVALID_CHILD">
+<code class="sig-name descname">INVALID_CHILD</code><em class="property"> = 'Quanta Notebook can only hold a child of type Quanta Element'</em><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.INVALID_CHILD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">child</em>, <em class="sig-param">position=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the child <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.Element</em>) – The child to be added to <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised when <cite>child</cite> is not of type Quanta.Element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.change_child_label">
+<code class="sig-name descname">change_child_label</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.change_child_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the label for existing child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.Element</em>) – The child whose label has to be changed.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The text for new label is taken as the name of child of <cite>child</cite>
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span></code>).
+It is set to “No child” when <cite>child</cite> has no name for its child
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span> <span class="pre">is</span> <span class="pre">None</span></code>).</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_action_button">
+<code class="sig-name descname">get_action_button</code><span class="sig-paren">(</span><em class="sig-param">pack_type</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_action_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the action button at given position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pack_type</strong> (<em>Gtk.PackType</em>) – The position from which action button has to retrieved.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Gtk.Button or None if <cite>self</cite> has no action button.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_number_of_action_buttons">
+<code class="sig-name descname">get_number_of_action_buttons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_number_of_action_buttons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of action buttons present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of action buttons.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the interface properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with interface properties.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.get_tab">
+<code class="sig-name descname">get_tab</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.get_tab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a tab label for child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.Element</em>) – The child which requires a tab label.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Gtk.Label with text determined from <cite>child</cite>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The text for new label is taken as the name of child of <cite>child</cite>
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span></code>).
+It is set to “No child” when <cite>child</cite> has no name for its child
+(<code class="docutils literal notranslate"><span class="pre">Quanta.Element.child_name</span> <span class="pre">is</span> <span class="pre">None</span></code>).
+Based on position of tabs in <cite>self</cite>, the orientation of text in the label also varies.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given child from <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.Element</em>) – The child which has to be removed from <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>child</cite> is not present in <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.replace_child">
+<code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">old_child</em>, <em class="sig-param">new_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.replace_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing child with a new child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_child</strong> (<em>Quanta.Element</em>) – The child present in <cite>self</cite> which has to be replaced.</p></li>
+<li><p><strong>new_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child that will replace the given existing child of <cite>self</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised when <cite>new_child</cite> is not a Quanta.Element.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.set_action_button">
+<code class="sig-name descname">set_action_button</code><span class="sig-paren">(</span><em class="sig-param">icon</em>, <em class="sig-param">pack_type</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.set_action_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the action button.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>icon</strong> (<em>Gtk.Image</em>) – The icon to be placed in action button.</p></li>
+<li><p><strong>pack_type</strong> (<em>Gtk.PackType</em>) – The position of the action button.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Notebook.Notebook.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Notebook.Notebook.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<em>dict</em>) – The dictionary containig properties of interface.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when there is a mismatch of number of action buttons in properties and
+    <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Quanta.Views.Paned">
+<span id="quanta-views-paned-module"></span><h2>Quanta.Views.Paned module<a class="headerlink" href="#module-Quanta.Views.Paned" title="Permalink to this headline">¶</a></h2>
+<p>Quanta.Paned is a view that can hold two children. The two children can either be views or
+Quanta.Element.</p>
+<dl class="class">
+<dt id="Quanta.Views.Paned.Paned">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Views.Paned.</code><code class="sig-name descname">Paned</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gi.overrides.Gtk.Paned</span></code></p>
+<dl class="method">
+<dt id="Quanta.Views.Paned.Paned.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">child</em>, <em class="sig-param">position=0</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the child <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child to be added to <cite>self</cite>.</p></li>
+<li><p><strong>position</strong> (<cite>int</cite>) – The panel at which the child has to be added. <cite>position</cite> can be 0 or 1 or 2, with
+default value being 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>self</cite> already has a child.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <cite>position</cite> is 1 or 2, <cite>child</cite> is added at panel 1 or 2 of <cite>self</cite> respectively. When
+it is 0, <cite>child</cite> is added to the first available panel. When it is neither of specified
+values, nothing is done.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Paned.Paned.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the interface properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with interface properties.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Paned.Paned.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given child from <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child which has to be removed from <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>child</cite> is not present in <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Paned.Paned.replace_child">
+<code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">old_child</em>, <em class="sig-param">new_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned.replace_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing child with a new child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child present in <cite>self</cite> which has to be replaced.</p></li>
+<li><p><strong>new_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child that will replace the given existing child of <cite>self</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when <cite>old_child</cite> is not in <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.Paned.Paned.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.Paned.Paned.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<em>dict</em>) – The dictionary containig properties of interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Quanta.Views.View">
+<span id="quanta-views-view-module"></span><h2>Quanta.Views.View module<a class="headerlink" href="#module-Quanta.Views.View" title="Permalink to this headline">¶</a></h2>
+<p>A Quanta,View heir can hold children of type Quanta.Element. In some case, there is a
+restriction on number of children it can hold. Quanta.View is a template class, that gives idea
+of essential methods any valid Quanta.View heir must have.</p>
+<dl class="class">
+<dt id="Quanta.Views.View.View">
+<em class="property">class </em><code class="sig-prename descclassname">Quanta.Views.View.</code><code class="sig-name descname">View</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="Quanta.Views.View.View.CHILD_NOT_PRESENT_ERROR">
+<code class="sig-name descname">CHILD_NOT_PRESENT_ERROR</code><em class="property"> = 'Child to be replaced is not in Quanta {}'</em><a class="headerlink" href="#Quanta.Views.View.View.CHILD_NOT_PRESENT_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Quanta.Views.View.View.INSUFFICIENT_INFO_ERROR">
+<code class="sig-name descname">INSUFFICIENT_INFO_ERROR</code><em class="property"> = 'Insufficient information to add child to Quanta {}'</em><a class="headerlink" href="#Quanta.Views.View.View.INSUFFICIENT_INFO_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Quanta.Views.View.View.OVERFLOW_ERROR">
+<code class="sig-name descname">OVERFLOW_ERROR</code><em class="property"> = 'Quanta {} can not have any more child'</em><a class="headerlink" href="#Quanta.Views.View.View.OVERFLOW_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.View.View.add_child">
+<code class="sig-name descname">add_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View.add_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the child <cite>self</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child to be added to <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Raised with error message of type <cite>INSUFFICIENT_INFO_ERROR</cite> when more information
+    is required to place <cite>child</cite> in <cite>self</cite>.</p></li>
+<li><p><strong>ValueError</strong> – Raised with error message of type <cite>OVERFLOW_ERROR</cite> when <cite>self</cite> cannot have any more
+    child.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When there is a lack of information to add the child, <cite>self</cite> may try its best to add
+<cite>child</cite> in suitable position.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.View.View.get_props">
+<code class="sig-name descname">get_props</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View.get_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the interface properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dictionary with interface properties.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.View.View.remove_child">
+<code class="sig-name descname">remove_child</code><span class="sig-paren">(</span><em class="sig-param">child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View.remove_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child which has to be removed from <cite>self</cite>.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises when <cite>child</cite> is not present in <cite>self</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.View.View.replace_child">
+<code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">old_child</em>, <em class="sig-param">new_child</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View.replace_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces the existing child with new child.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>old_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child present in self which has to be replaced.</p></li>
+<li><p><strong>new_child</strong> (<em>Quanta.View heir</em><em> or </em><em>Quanta.Element</em>) – The child that will replace the given <cite>old_child</cite> of <cite>self</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Quanta.Views.View.View.set_from_props">
+<code class="sig-name descname">set_from_props</code><span class="sig-paren">(</span><em class="sig-param">props</em><span class="sig-paren">)</span><a class="headerlink" href="#Quanta.Views.View.View.set_from_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the interface from given properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>props</strong> (<em>dict</em>) – The dictionary containig properties of interface.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Quanta.Views">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Quanta.Views" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Quanta.html" class="btn btn-neutral float-left" title="Quanta package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, J Arun Mani
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

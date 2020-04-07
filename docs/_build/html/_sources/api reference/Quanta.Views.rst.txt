@@ -1,0 +1,46 @@
+Quanta.Views package
+====================
+
+Submodules
+----------
+
+Quanta.Views.Bin module
+-----------------------
+
+.. automodule:: Quanta.Views.Bin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Quanta.Views.Notebook module
+----------------------------
+
+.. automodule:: Quanta.Views.Notebook
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Quanta.Views.Paned module
+-------------------------
+
+.. automodule:: Quanta.Views.Paned
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Quanta.Views.View module
+------------------------
+
+.. automodule:: Quanta.Views.View
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: Quanta.Views
+   :members:
+   :undoc-members:
+   :show-inheritance:

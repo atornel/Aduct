@@ -1,0 +1,2573 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Making an Application
+\end_layout
+
+\begin_layout Standard
+No more theory, let us now get into the business of making applications.
+ In this tutorial we will make a very basic application that helps you in
+ understanding the logics.
+ We have divided the tutorial into simpler parts so it is easy to follow.
+\end_layout
+
+\begin_layout Standard
+Since the application should be easy, we will handle only very few widgets
+ of Gtk.
+ The details of the widgets are given below :
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.Entry"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Entry.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+An entry widget takes single line input from user.
+ It can also be used to display text that can only be copied but not modified.
+ When the text in an entry is changed, it emits 
+\emph on
+changed 
+\emph default
+signal.
+ To prevent editing the text of an entry, we set its 
+\emph on
+editable 
+\emph default
+to 
+\emph on
+False.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.FileChooserButton"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/FileChooserButton.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+To open, save, select files or folders we need a file chooser widget.
+ After user selects a file in the file chooser dialog, a 
+\emph on
+file-set 
+\emph default
+signal is emitted.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.Label"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Label.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Text can be displayed using a label widget.
+ In our demo application, we are using only basic features of a label, that
+ is 
+\emph on
+just display text
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.ScrolledWindow"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ScrolledWindow.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If a widget is too large to be accommodated in given space, we use a scrolled
+ window.
+ This shows only the portion of the widget that could be displayed and rest
+ can be scrolled.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.TextBuffer"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TextBuffer.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Text-buffer is used to store the text for a text-view widget.
+ A single text-buffer can be shared across multiple text-views.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.TextView"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/TextView.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+To enable multi-line text compatibility a text-view widget is used.
+ Text-view is a front-end and the text in it is controlled using a text-buffer.
+ As in the case of label, we are not going to use the full power of a text-view.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Gtk.ToggleButton"
+target "https://lazka.github.io/pgi-docs/Gtk-3.0/classes/ToggleButton.html"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+A toggle button is like a switch, it can have two states 
+\emph on
+active
+\emph default
+ and 
+\emph on
+inactive
+\emph default
+.
+ A 
+\emph on
+toggled
+\emph default
+ signal is emitted if the state of the button is changed.
+\end_layout
+
+\begin_layout Standard
+So let's get started.
+\end_layout
+
+\begin_layout Subsection*
+Making Providers
+\end_layout
+
+\begin_layout Standard
+Providers are the core part of our application.
+ Because of the design philosophy of Quanta, every part of an application
+ behaves like a plugin.
+ This makes an application modular in every way.
+ To keep things simple, we make only three providers.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Provider A
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+It gives a text entry and a toggle button.
+ The toggle button allows editing the entry.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Provider B
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+It gives a text-view and file chooser button.
+ The file chooser button opens the file for displaying.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Provider C
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+It gives a label with text 
+\begin_inset Quotes eld
+\end_inset
+
+Hello World
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note : If the code to make the first two providers are difficult, then copy
+ the code for Provider C and change the text for label, but the results
+ will vary.
+\end_layout
+
+\begin_layout Standard
+To make providers, we inherit Quanta.Provider.
+ Then we add the required methods (refer the API Documentation for more
+ details on required methods).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import Quanta as Qu
+\end_layout
+
+\begin_layout Plain Layout
+
+from Quanta import Gtk
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Provider_A(Qu.Provider):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        super().__init__(name)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.text = ""
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.toggles = []
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.entries = []
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.editable = False
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def change_text(self, entry):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.text = entry.get_text()
+\end_layout
+
+\begin_layout Plain Layout
+
+        for entry in self.entries:
+\end_layout
+
+\begin_layout Plain Layout
+
+            entry.set_text(self.text)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def clear_child(self, child_props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.entries.remove(child_props["child"])
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.toggles.remove(child_props["header_child"])
+\end_layout
+
+\begin_layout Plain Layout
+
+        del child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_a_child(self, child_name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        entry = Gtk.Entry(margin=5, text=self.text, editable=self.editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+        entry.connect("changed", self.change_text)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        icon = Gtk.Image.new_from_icon_name("terminal", 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+        # Choose whatever icon you want
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        switch = Gtk.ToggleButton(
+\end_layout
+
+\begin_layout Plain Layout
+
+            label="Allow Edit", hexpand=True, halign=2, active=self.editable
+\end_layout
+
+\begin_layout Plain Layout
+
+        )
+\end_layout
+
+\begin_layout Plain Layout
+
+        switch.connect("toggled", self.toggle_editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.entries.append(entry)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.toggles.append(switch)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        child_props = {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child_name": "Entry",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child": entry,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "icon": icon,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "header_child": switch,
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        return child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_props(self, child_name, child, header_child):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        props = {"child_name": child_name, "text": self.text, "editable":
+ self.editable}
+\end_layout
+
+\begin_layout Plain Layout
+
+        return props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_from_props(self, props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.editable = props["editable"]
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.text = props["text"]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        for toggle in self.toggles:
+\end_layout
+
+\begin_layout Plain Layout
+
+            toggle.set_active(self.editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+        for entry in self.entries:
+\end_layout
+
+\begin_layout Plain Layout
+
+            entry.set_editable(self.editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+            entry.set_text(self.text)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.get_a_child(props["child_name"])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def toggle_editable(self, toggle):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.editable = toggle.get_active()
+\end_layout
+
+\begin_layout Plain Layout
+
+        for toggle in self.toggles:
+\end_layout
+
+\begin_layout Plain Layout
+
+            toggle.set_active(self.editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+        for entry in self.entries:
+\end_layout
+
+\begin_layout Plain Layout
+
+            entry.set_editable(self.editable)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Provider_B(Qu.Provider):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        super().__init__(name)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.file_choosers = []
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.buffer = Gtk.TextBuffer()
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.path = None
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def clear_child(self, child_props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.file_choosers.remove(child_props["header_child"])
+\end_layout
+
+\begin_layout Plain Layout
+
+        del child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def change_text_at_buffer(self, fp_but):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        path = fp_but.get_filename()
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.path = path
+\end_layout
+
+\begin_layout Plain Layout
+
+        fp = open(path)
+\end_layout
+
+\begin_layout Plain Layout
+
+        text = fp.read()
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.buffer.set_text(text)
+\end_layout
+
+\begin_layout Plain Layout
+
+        fp.close()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        for fp_chooser in self.file_choosers:
+\end_layout
+
+\begin_layout Plain Layout
+
+            fp_chooser.set_filename(self.path)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_a_child(self, child_name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        textview = Gtk.TextView(margin=5, buffer=self.buffer)
+\end_layout
+
+\begin_layout Plain Layout
+
+        scrolled = Gtk.ScrolledWindow(expand=True)
+\end_layout
+
+\begin_layout Plain Layout
+
+        scrolled.add(textview)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        icon = Gtk.Image.new_from_icon_name("folder", 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        fp_but = Gtk.FileChooserButton(title="Choose file", hexpand=True,
+ halign=2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        if self.path:
+\end_layout
+
+\begin_layout Plain Layout
+
+            fp_but.set_filename(self.path)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        fp_but.connect("file-set", self.change_text_at_buffer)
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.file_choosers.append(fp_but)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        child_props = {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child_name": "TextView",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child": scrolled,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "icon": icon,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "header_child": fp_but,
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        return child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_props(self, child_name, child, header_child):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        props = {"child_name": child_name, "path": self.path}
+\end_layout
+
+\begin_layout Plain Layout
+
+        return props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_from_props(self, props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.path = props["path"]
+\end_layout
+
+\begin_layout Plain Layout
+
+        if self.path:
+\end_layout
+
+\begin_layout Plain Layout
+
+            fp = open(self.path)
+\end_layout
+
+\begin_layout Plain Layout
+
+            text = fp.read()
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.buffer.set_text(text)
+\end_layout
+
+\begin_layout Plain Layout
+
+            fp.close()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+            for fp_chooser in self.file_choosers:
+\end_layout
+
+\begin_layout Plain Layout
+
+                fp_chooser.set_filename(self.path)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.get_a_child(props["child_name"])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Provider_C(Qu.Provider):
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        super().__init__(name)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def clear_child(self, child_props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        del child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_a_child(self, child_name):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        label = Gtk.Label(margin=5, label="Hello world")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        icon = Gtk.Image.new_from_icon_name("glade", 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+        child_props = {
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child_name": "Label",
+\end_layout
+
+\begin_layout Plain Layout
+
+            "child": label,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "icon": icon,
+\end_layout
+
+\begin_layout Plain Layout
+
+            "header_child": None,
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        return child_props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_props(self, child_name, child, header_child):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        props = {"child_name": child_name}
+\end_layout
+
+\begin_layout Plain Layout
+
+        return props
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_child_from_props(self, props):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.get_a_child(props["child_name"])
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A = Provider_A("Provider A")
+\end_layout
+
+\begin_layout Plain Layout
+
+B = Provider_B("Provider B")
+\end_layout
+
+\begin_layout Plain Layout
+
+C = Provider_C("Provider C")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We prefer keeping the above code in a separate file (could be named 
+\emph on
+providers.py
+\emph default
+), because in practical situations (while making real applications) its
+ better to isolate providers from the core application, this makes it easy
+ to maintain.
+ The reason we imported Gtk from Quanta is not so crucial.
+ It was done to reduce typing, also it makes sure that we are using the
+ version of Gtk that Quanta is using.
+\end_layout
+
+\begin_layout Subsection*
+Attaching Providers
+\end_layout
+
+\begin_layout Standard
+Now we have made providers, our next step is to frame the application.
+ Open a new file (could be named 
+\emph on
+app.py
+\emph default
+).
+ To allow widgets in the application, we should put a way for users to view
+ available widgets and select the required.
+ This is done using action-button of element and notebook.
+ The convention is when users left-click an action-button, it should show
+ widgets (from providers) and when they right-click, it should show options
+ to modify the interface.
+\end_layout
+
+\begin_layout Standard
+There are two suitable ways to show the users the widgets to select from.
+ It could be a popup window.
+ But pop-ups are considered distracting.
+ The second option is drop-down menu (also known as popover menu).
+ Popovers are better as they cover only a small area and are not as annoying
+ as popup windows.
+ To make a menu, we use Gtk.ModelButton.
+\end_layout
+
+\begin_layout Standard
+Before adding providers, we should also spend time in a kind of functions
+ known as 
+\emph on
+creator functions
+\emph default
+.
+ As Quanta is an interface to dynamically modify an interface, you need
+ to be able to dynamically make Quanta widgets.
+ So we make small functions that, when called give the required widget.
+ An advantage of such functions is that they can be used to add custom changes
+ to widgets like changing border spacing, connecting signals and automate
+ other repeating tasks.
+ The first few lines of 
+\emph on
+app.py 
+\emph default
+is given below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+import Quanta as Qu
+\end_layout
+
+\begin_layout Plain Layout
+from Quanta import Gtk
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+from providers import A, B, C
+ # providers from provider.py
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+last_widget = None
+ # The last widget (element/notebook) where popover was shown.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def new_element():
+\end_layout
+
+\begin_layout Plain Layout
+    element = Qu.Element(margin=5)
+\end_layout
+
+\begin_layout Plain Layout
+    element.connect("action-clicked", show_popover_element)
+\end_layout
+
+\begin_layout Plain Layout
+
+    # show_popover_element is a function to show the popover for an element.
+\end_layout
+
+\begin_layout Plain Layout
+    return element
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def new_bin():
+\end_layout
+
+\begin_layout Plain Layout
+    bin_ = Qu.Bin()
+\end_layout
+
+\begin_layout Plain Layout
+    return bin_
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def new_paned(orientation=0):
+\end_layout
+
+\begin_layout Plain Layout
+    paned = Qu.Paned(orientation=orientation)
+\end_layout
+
+\begin_layout Plain Layout
+    return paned
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def new_notebook():
+\end_layout
+
+\begin_layout Plain Layout
+    notebook = Qu.Notebook()
+\end_layout
+
+\begin_layout Plain Layout
+    icon = Gtk.Image.new_from_icon_name("list-add", 2)
+\end_layout
+
+\begin_layout Plain Layout
+    notebook.set_action_button(icon, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    notebook.connect("action-clicked", show_popover_notebook)
+\end_layout
+
+\begin_layout Plain Layout
+
+    # show_popover_notebook is a function like show_popover_element.
+\end_layout
+
+\begin_layout Plain Layout
+    return notebook
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The idea of the above code is simple.
+ When action-button of an element or notebook is clicked, it emits a signal
+ and popover is shown in return.
+ The popover contains model-buttons for various purposes, when they are
+ clicked, they need to know 
+\emph on
+for which
+\emph default
+ element or notebook they were clicked.
+ To tackle this, when an action-button is clicked, we correspondingly set
+ the value of 
+\emph on
+last_widget 
+\emph default
+to that widget.
+ With that, let's append the next lines of code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+def show_popover_element(ele, but, event):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    last_widget = ele
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    if event == 1:
+ # 1 -> left-click of mouse
+\end_layout
+
+\begin_layout Plain Layout
+        prov_popover.set_relative_to(but)
+\end_layout
+
+\begin_layout Plain Layout
+        prov_popover.popup()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    elif event == 3:
+ # 3 -> right-click of mouse
+\end_layout
+
+\begin_layout Plain Layout
+        for modbs in tweaks.values():
+\end_layout
+
+\begin_layout Plain Layout
+            for modb in modbs:
+\end_layout
+
+\begin_layout Plain Layout
+                modb.set_sensitive(True)
+\end_layout
+
+\begin_layout Plain Layout
+        tweak_popover.set_relative_to(but)
+\end_layout
+
+\begin_layout Plain Layout
+        tweak_popover.popup()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def show_popover_notebook(nb, but, event):
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    last_widget = nb
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    if event == 1:
+\end_layout
+
+\begin_layout Plain Layout
+        prov_popover.set_relative_to(but)
+\end_layout
+
+\begin_layout Plain Layout
+        prov_popover.popup()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    elif event == 3:
+\end_layout
+
+\begin_layout Plain Layout
+        for modb in tweaks["Element"]:
+\end_layout
+
+\begin_layout Plain Layout
+            modb.set_sensitive(False)
+\end_layout
+
+\begin_layout Plain Layout
+        for modb in tweaks["Notebook"]:
+\end_layout
+
+\begin_layout Plain Layout
+            modb.set_sensitive(False)
+\end_layout
+
+\begin_layout Plain Layout
+        tweak_popover.set_relative_to(but)
+\end_layout
+
+\begin_layout Plain Layout
+        tweak_popover.popup()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both the above functions are same but the difference between them is that
+ first one is for an element and second is for a notebook.
+ 
+\emph on
+prov_popover 
+\emph default
+is for displaying widgets from providers and 
+\emph on
+tweak_popover 
+\emph default
+is for showing options to modify the interface.
+ As per the convention mentioned earlier, we show 
+\emph on
+prov_popover 
+\emph default
+when users left-click and 
+\emph on
+tweak_popover
+\emph default
+ when users right-click.
+ We will cover later why we are changing sensitivities of 
+\emph on
+something
+\emph default
+ named 
+\emph on
+modb.
+\end_layout
+
+\begin_layout Standard
+Now let us make some more functions that can modify the interface.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+def remove_element(wid):
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    Qu.remove_element(last_widget, last_widget.get_parent())
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def add_to_paned(wid, position):
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    element = new_element()
+\end_layout
+
+\begin_layout Plain Layout
+    paned = new_paned()
+\end_layout
+
+\begin_layout Plain Layout
+    if position == 0:
+\end_layout
+
+\begin_layout Plain Layout
+        paned.set_orientation(0)
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.add_to_paned(last_widget, element, paned, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    elif position == 1:
+\end_layout
+
+\begin_layout Plain Layout
+        paned.set_orientation(0)
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.add_to_paned(last_widget, element, paned, 2)
+\end_layout
+
+\begin_layout Plain Layout
+    elif position == 2:
+\end_layout
+
+\begin_layout Plain Layout
+        paned.set_orientation(1)
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.add_to_paned(last_widget, element, paned, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    elif position == 3:
+\end_layout
+
+\begin_layout Plain Layout
+        paned.set_orientation(1)
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.add_to_paned(last_widget, element, paned, 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def add_to_notebook(wid, position):
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    notebook = new_notebook()
+\end_layout
+
+\begin_layout Plain Layout
+    notebook.set_tab_pos(position)
+\end_layout
+
+\begin_layout Plain Layout
+    Qu.add_to_notebook(last_widget, notebook)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Please read the API Reference to know the details of the functions used
+ from Quanta.
+ Next we add more functions for changing child at an element, saving and
+ loading interfaces.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def change_child_at_element(wid, prov, child_name):
+\end_layout
+
+\begin_layout Plain Layout
+    global last_widget
+\end_layout
+
+\begin_layout Plain Layout
+    if last_widget.type == "element":
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.change_child_at_element(last_widget, prov, child_name)
+\end_layout
+
+\begin_layout Plain Layout
+    elif last_widget.type == "notebook":
+\end_layout
+
+\begin_layout Plain Layout
+        element = new_element()
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.change_child_at_element(element, prov, child_name)
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.add_to_notebook(element, last_widget)
+\end_layout
+
+\begin_layout Plain Layout
+        element.show_all()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def save_interface(wid):
+\end_layout
+
+\begin_layout Plain Layout
+    from json import dump
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    with open("quanta.ui", "w") as fp:
+\end_layout
+
+\begin_layout Plain Layout
+        ui_dict = Qu.get_interface(top_level)
+\end_layout
+
+\begin_layout Plain Layout
+        dump(ui_dict, fp)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def load_interface(wid):
+\end_layout
+
+\begin_layout Plain Layout
+    from json import load
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    with open("quanta.ui") as fp:
+\end_layout
+
+\begin_layout Plain Layout
+        ui_dict = load(fp)
+\end_layout
+
+\begin_layout Plain Layout
+        creator_maps = {
+\end_layout
+
+\begin_layout Plain Layout
+            "type": {
+\end_layout
+
+\begin_layout Plain Layout
+                "element": (new_element, (), {}),
+\end_layout
+
+\begin_layout Plain Layout
+                "bin": (new_bin, (), {}),
+\end_layout
+
+\begin_layout Plain Layout
+                "notebook": (new_notebook, (), {}),
+\end_layout
+
+\begin_layout Plain Layout
+                "paned": (new_paned, (), {}),
+\end_layout
+
+\begin_layout Plain Layout
+            }
+\end_layout
+
+\begin_layout Plain Layout
+        }
+\end_layout
+
+\begin_layout Plain Layout
+        init_maps = {
+\end_layout
+
+\begin_layout Plain Layout
+            "provider": {"Provider A": A, "Provider B": B, "Provider C":
+ C, None: None}
+\end_layout
+
+\begin_layout Plain Layout
+        }
+\end_layout
+
+\begin_layout Plain Layout
+        Qu.set_interface(ui_dict, top_level, creator_maps, init_maps)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first function does some straight-forward tasks.
+ It changes a child at element when called from element.
+ In case it is called from a notebook, we make a new element, get a child
+ from provider and adds it to the element.
+ Then it appends it to the notebook.
+\end_layout
+
+\begin_layout Standard
+The second function gets the interface, it is a dictionary with strings,
+ numbers and None.
+ So it can be dumped using 
+\emph on
+json 
+\emph default
+in human-readable format.
+ We are using a file named 
+\emph on
+quanta.ui 
+\emph default
+for saving and loading interfaces.
+ 
+\emph on
+top_level 
+\emph default
+(declared later) is the view or element from which the interface should
+ be fetched.
+ It is usually the root widget.
+\end_layout
+
+\begin_layout Standard
+The third function surely deserves a mention.
+ After completing this tutorial, you can run the script (
+\emph on
+app.py
+\emph default
+), try playing with the interface.
+ Then save the interface.
+ After that open the file named 
+\emph on
+quanta.ui
+\emph default
+, you will see a 
+\emph on
+JSON
+\emph default
+ formatted object with keys like 
+\emph on
+type
+\emph default
+, 
+\emph on
+provider
+\emph default
+ etc.
+ Now when you ask Quanta to create the interface from the same file, it
+ replaces all the required values with objects (or widgets here).
+ The convention is that key 
+\emph on
+type
+\emph default
+ states the type of Quanta widget and 
+\emph on
+provider
+\emph default
+ states the name of provider.
+\end_layout
+
+\begin_layout Standard
+The dictionaries you are seeing above with some name ending 
+\emph on
+maps
+\emph default
+, does the job of replacing strings or numbers with an object.
+ The dictionary is a nested-dictionary of depth two.
+ It is like 
+\emph on
+what key to replace? If found replace the value of that key with the value
+ from maps.
+ 
+\emph default
+For example, from 
+\emph on
+init_maps 
+\emph default
+we have the key 
+\emph on
+provider.
+ 
+\emph default
+So first the 
+\emph on
+set_interface 
+\emph default
+function will look for any key named 
+\emph on
+provider
+\emph default
+ in 
+\emph on
+ui_dict.
+ 
+\emph default
+If found it will look at its value, say it is 
+\emph on
+Provider A, 
+\emph default
+now it will go back to 
+\emph on
+init_maps
+\emph default
+ and look for the value of key 
+\emph on
+Provider A
+\emph default
+ in the dictionary which is the value of key named 
+\emph on
+provider
+\emph default
+.
+ From the above it is a provider named 
+\emph on
+A
+\emph default
+, then the function replaces the value 
+\emph on
+Provider A
+\emph default
+ in 
+\emph on
+ui_dict
+\emph default
+ with the actual object; provider 
+\emph on
+A
+\emph default
+.
+ So you can consider it as a mapping of strings to objects.
+\end_layout
+
+\begin_layout Standard
+The purpose of 
+\emph on
+creator_maps
+\emph default
+ and 
+\emph on
+init_maps
+\emph default
+ are pretty same.
+ Their difference lies in values they are replacing.
+ 
+\emph on
+init_maps
+\emph default
+ maps to object already created, that is initialized objects, like providers,
+ plugins, file objects.
+ It is to replace object that are already available and should not created
+ again.
+ On the other hand, 
+\emph on
+creator_maps
+\emph default
+, dynamically creates objects as needed.
+ It is for the purpose where each object has to be unique or can be created
+ multiple times for multiple usage.
+ The values of 
+\emph on
+creator_maps
+\emph default
+ are of this order 
+\emph on
+(function, arguments, keyword-arguments)
+\emph default
+.
+ While replacing strings with objects, the object is created by calling
+ the function like this : 
+\emph on
+function(*arguments, **keyword-arguments).
+ 
+\emph default
+Pretty simple as that, however if you are confused, remember them as mappings.
+ That's it.
+\end_layout
+
+\begin_layout Standard
+The third function needs a root widget.
+ It will remove whatever child it holds and replaces it with the children
+ from the 
+\emph on
+JSON
+\emph default
+ file.
+ However it returns the old child for recovering data, something not so
+ necessary in our application.
+\end_layout
+
+\begin_layout Standard
+The finishing parts of our application is just connecting everything, creating
+ a new window and adding a top level view.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,numbers=left,showstringspaces=false,tabsize=4,extendedchars=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+provs = [
+\end_layout
+
+\begin_layout Plain Layout
+    (A, Gtk.ModelButton(text="Entry"), "Entry"),
+ # Making a model-button for each provider.
+\end_layout
+
+\begin_layout Plain Layout
+    (B, Gtk.ModelButton(text="TextView"), "TextView"),
+\end_layout
+
+\begin_layout Plain Layout
+    (C, Gtk.ModelButton(text="Label"), "Label"),
+\end_layout
+
+\begin_layout Plain Layout
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+prov_grid = Gtk.Grid()
+ # A grid to store them
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+for y, (prov, modb, child_name) in enumerate(provs):
+\end_layout
+
+\begin_layout Plain Layout
+    prov_grid.attach(modb, 0, y, 1, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    modb.connect("clicked", change_child_at_element, prov, child_name)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+prov_popover = Gtk.PopoverMenu()
+\end_layout
+
+\begin_layout Plain Layout
+prov_popover.add(prov_grid)
+\end_layout
+
+\begin_layout Plain Layout
+prov_grid.show_all()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Pretty same as providers, but for tweak functions.
+\end_layout
+
+\begin_layout Plain Layout
+tweaks = {
+\end_layout
+
+\begin_layout Plain Layout
+    "Element": (Gtk.ModelButton(text="Remove"),),
+\end_layout
+
+\begin_layout Plain Layout
+    "Notebook": (
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Add to top notebook"),
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Add to side notebook"),
+\end_layout
+
+\begin_layout Plain Layout
+    ),
+\end_layout
+
+\begin_layout Plain Layout
+    "Paned": (
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Split left"),
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Split right"),
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Split up"),
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Split down"),
+\end_layout
+
+\begin_layout Plain Layout
+    ),
+\end_layout
+
+\begin_layout Plain Layout
+    "Interface": (
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Load interface"),
+\end_layout
+
+\begin_layout Plain Layout
+        Gtk.ModelButton(text="Save interface"),
+\end_layout
+
+\begin_layout Plain Layout
+    ),
+\end_layout
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+tweak_grid = Gtk.Grid()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+for x, title in enumerate(tweaks):
+\end_layout
+
+\begin_layout Plain Layout
+    label = Gtk.Label(label=title)
+\end_layout
+
+\begin_layout Plain Layout
+    tweak_grid.attach(label, x, 0, 1, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    modbs = tweaks[title]
+\end_layout
+
+\begin_layout Plain Layout
+    for y, modb in enumerate(modbs):
+\end_layout
+
+\begin_layout Plain Layout
+        tweak_grid.attach(modb, x, y + 1, 1, 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+tweak_popover = Gtk.PopoverMenu()
+\end_layout
+
+\begin_layout Plain Layout
+tweak_popover.add(tweak_grid)
+\end_layout
+
+\begin_layout Plain Layout
+tweak_grid.show_all()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+def connect_tweaks():
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Connecting model-buttons to required functions.
+\end_layout
+
+\begin_layout Plain Layout
+    elem_modb = tweaks["Element"][0]
+\end_layout
+
+\begin_layout Plain Layout
+    elem_modb.connect("clicked", remove_element)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    top_nb_modb = tweaks["Notebook"][0]
+\end_layout
+
+\begin_layout Plain Layout
+    top_nb_modb.connect("clicked", add_to_notebook, 2)
+\end_layout
+
+\begin_layout Plain Layout
+    side_nb_modb = tweaks["Notebook"][1]
+\end_layout
+
+\begin_layout Plain Layout
+    side_nb_modb.connect("clicked", add_to_notebook, 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    l_paned_modb = tweaks["Paned"][0]
+\end_layout
+
+\begin_layout Plain Layout
+    r_paned_modb = tweaks["Paned"][1]
+\end_layout
+
+\begin_layout Plain Layout
+    u_paned_modb = tweaks["Paned"][2]
+\end_layout
+
+\begin_layout Plain Layout
+    d_paned_modb = tweaks["Paned"][3]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    # 0, 1, 2, 3 are integer values of Gtk.PositionType.
+\end_layout
+
+\begin_layout Plain Layout
+    l_paned_modb.connect("clicked", add_to_paned, 0)
+\end_layout
+
+\begin_layout Plain Layout
+    r_paned_modb.connect("clicked", add_to_paned, 1)
+\end_layout
+
+\begin_layout Plain Layout
+    u_paned_modb.connect("clicked", add_to_paned, 2)
+\end_layout
+
+\begin_layout Plain Layout
+    d_paned_modb.connect("clicked", add_to_paned, 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+    load_modb = tweaks["Interface"][0]
+\end_layout
+
+\begin_layout Plain Layout
+    save_modb = tweaks["Interface"][1]
+\end_layout
+
+\begin_layout Plain Layout
+    load_modb.connect("clicked", load_interface)
+\end_layout
+
+\begin_layout Plain Layout
+    save_modb.connect("clicked", save_interface)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+connect_tweaks()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+top_level = new_bin()
+\end_layout
+
+\begin_layout Plain Layout
+element = new_element()
+\end_layout
+
+\begin_layout Plain Layout
+top_level.add_child(element)
+ # Making a single element and adding it.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+win = Gtk.Window(default_height=500, default_width=750)
+\end_layout
+
+\begin_layout Plain Layout
+win.add(top_level)
+\end_layout
+
+\begin_layout Plain Layout
+win.connect("destroy", Gtk.main_quit)
+\end_layout
+
+\begin_layout Plain Layout
+win.show_all()
+\end_layout
+
+\begin_layout Plain Layout
+Gtk.main()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Phew...
+ we completed making the application! You might now have understood some
+ parts, but still, run the application (run 
+\emph on
+app.py
+\emph default
+) and see how it looks.
+ Well just an empty screen with an empty button, right? Click on the action-butt
+on of element and add new child to the element.
+ Next try right clicking the action-button to split it or add to a notebook.
+ Have fun removing the views and adding new one.
+ When you are comfortable with the interface, save the interface and close
+ the application.
+ Now open it again and load the interface.
+ You should see the interface you saved.
+\end_layout
+
+\begin_layout Standard
+Let us discuss something we promised earlier.
+ Run the application, and add an element to notebook.
+ Now right-click the element's action-button and click on 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+Add to side notebook
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+, you should see an error in your terminal or console that a Quanta notebook
+ can only have a Quanta element as child.
+ It is not a bug, its a feature! Quanta notebook can only attach named children
+ and the only named child in Quanta is element.
+ So you will get error when you try to add a child of irrelevant type to
+ a notebook.
+ This is the reason we changed the sensitivities of a few menu items.
+ Because we don't want to allow users to do something not permitted.
+ We could have made separate popovers for notebook and element, but to avoid
+ repeating codes with small difference, we omitted it.
+ You might wonder why we didn't change sensitivities of menu items of popovers
+ shown for elements inside a notebook, the answer is we want you to try!
+\end_layout
+
+\begin_layout Standard
+Note a few more things which might look absurd.
+ When you remove an element from a paned, it collapses to a bin.
+ Similarly when you remove an element from notebook with three or more pages,
+ nothing goes wrong.
+ But when you remove an element from a notebook with only two pages, the
+ notebook drops to a bin.
+ In case of a bin, when you try to remove its child element, instead of
+ removing, it only clears the element.
+ This also has some sense behind it.
+ A paned is meant to hold two child, so when you remove its one child, the
+ purpose of a paned is destroyed, so it becomes a bin.
+ Similarly, a notebook is meant to hold a number of elements and show only
+ one of them at a time.
+ A notebook with only page is against its purpose, so it becomes a bin.
+ For bin, the same logic is applied.
+ A Quanta Bin is, by convention, used as a top-level for holding other view.
+ When you remove the element from it, the complete interface link is broken
+ and you get a blank space, where no kind of interaction is possible.
+ To avoid this, bin always clears the element instead of removing it.
+\end_layout
+
+\begin_layout Standard
+However, if these behaviors are not acceptable to you, you are always free
+ to create your own functions and use them.
+\end_layout
+
+\begin_layout Standard
+While using the widgets like entry, text-view in our application, you might
+ have noticed that an entry is just a copy of another entry, with same text
+ and mode synchronized between them.
+ This is to symbolize that widgets with same name are basically the same.
+ But this is not enforced.
+ It depends on the provider, it may produce a new widget or just a copy.
+\end_layout
+
+\begin_layout Standard
+So here we reach the end of tutorial.
+ There are some lines, paragraphs or entire section that doesn't even make
+ any sense to you.
+ Feel free to discuss it with other developers to get help.
+ Also if you think, the same matter could be presented in a better manner,
+ you are always to suggest your edits.
+ At last, we would like to say, designing an application is like painting.
+ Everyone has a brush and seven basic colors.
+ It depends on the painter how great he is going to make his art look.
+ He may have a different ideology and style, its unique and can't be duplicated.
+ Same in case of an application, Quanta is like brush and paints, it lies
+ in your method, how well you are going to utilize it.
+ Sometimes it could come out worse, where you should surely retry.
+ Sometimes it could come great, where you should share the method with others
+ (including us!).
+ Also beauty lies in the eyes of the viewer, not in the painting...
+ cheers!
+\end_layout
+
+\end_body
+\end_document

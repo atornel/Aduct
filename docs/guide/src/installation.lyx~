@@ -1,0 +1,241 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Installation
+\end_layout
+
+\begin_layout Standard
+Simply put, to use Quanta, you need to install it.
+ The following guide should be able help you in getting Quanta.
+ For advanced users and more configuration, you are always welcome to grab
+ the source code of Quanta and do literally whatever you want.
+\end_layout
+
+\begin_layout Subsection*
+Requirements
+\end_layout
+
+\begin_layout Standard
+Quanta is written in Python and requires Python.
+ Apart from that you need Gtk, nothing more.
+ So we directly follow the guidelines required to use Gtk.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Python 3.5+
+\series default
+ If not installed, get the latest version of Python from the 
+\begin_inset CommandInset href
+LatexCommand href
+name "website"
+target "www.python.org"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Gtk 3.0+
+\series default
+ The latest version of Gtk is recommended.
+ You can learn from the Gtk 
+\begin_inset CommandInset href
+LatexCommand href
+name "website"
+target "www.gtk.org"
+literal "false"
+
+\end_inset
+
+ how to install the stable version.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+PyGObject
+\series default
+ PyGObject provides Python bindings to GI modules (that is Gtk and its friends).
+ If it is your first try with Gtk, you may have to install it.
+ Directly install it using PIP (
+\begin_inset CommandInset href
+LatexCommand href
+name "PyPI website"
+target "https://pypi.org/project/PyGObject/"
+literal "false"
+
+\end_inset
+
+) or follow the instructions from the 
+\begin_inset CommandInset href
+LatexCommand href
+name "module's website"
+target "https://pygobject.readthedocs.io/"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Getting Quanta
+\end_layout
+
+\begin_layout Standard
+After the requirements are satisfied, installing Quanta won't be a trouble.
+ The best way is to install it using PIP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=bash"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+$ pip install quanta
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As already stated, for those not comfortable with PIP, you can always get
+ the source code and do necessary things to get Quanta on your 
+\emph on
+PYTHONPATH
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection*
+New to Gtk ?
+\end_layout
+
+\begin_layout Standard
+It might be case, that you don't even know what is Gtk and perhaps be wondering
+ how to get started.
+ The following is a quotation from Wikipedia's page for Gtk.
+\end_layout
+
+\begin_layout Quotation
+GTK (formerly GTK+ GIMP Toolkit) is a free and open-source cross-platform
+ widget toolkit for creating graphical user interfaces (GUIs).
+ It is licensed under the terms of the GNU Lesser General Public License,
+ allowing both free and proprietary software to use it.
+ Along with Qt, it is one of the most popular toolkits for the Wayland and
+ X11 windowing systems.
+ (
+\begin_inset CommandInset href
+LatexCommand href
+name "Source"
+target "https://en.wikipedia.org/wiki/GTK"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Learning the basics of Gtk will be easy with Python.
+ To get familiar with developing Gtk applications, please have a look at
+ the 
+\begin_inset CommandInset href
+LatexCommand href
+name "official docs"
+target "https://www.gtk.org/docs/language-bindings/python/"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
