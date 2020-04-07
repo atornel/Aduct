@@ -69,7 +69,7 @@ Making Providers
 ----------------
 
 Providers are the core part of our application. Because of the design
-philosophy of Qtk, every part of an application behaves like a
+philosophy of Aduct, every part of an application behaves like a
 plugin. This makes an application modular in every way. To keep things
 simple, we make only three providers.
 
@@ -89,11 +89,11 @@ simple, we make only three providers.
     copy the code for Provider C and change the text for label, but the
     results will vary.
 
-To make providers, we inherit :class:`Qtk.Provider`. Then we add the required
-methods (please refer :mod:`Qtk.Provider` for more details on required
+To make providers, we inherit :class:`Aduct.Provider`. Then we add the required
+methods (please refer :mod:`Aduct.Provider` for more details on required
 methods).
 
-In Qtk, you will often see variables named ``child_dict``. A ``child_dict``
+In Aduct, you will often see variables named ``child_dict``. A ``child_dict``
 is of the following format.
 
 .. code:: python
@@ -103,7 +103,7 @@ is of the following format.
        "child_name": str,
        "icon": Gtk.Image,
        "header_child": Gtk.Widget or None,
-       "provider": Qtk.Provider
+       "provider": Aduct.Provider
    }
 
 The source code for our providers are as follows. If you are lazy to copy-paste,
@@ -112,11 +112,11 @@ The source code for our providers are as follows. If you are lazy to copy-paste,
 .. code:: python
    :number-lines:
 
-   import Qtk
-   from Qtk import Gtk
+   import Aduct
+   from Aduct import Gtk
 
 
-   class Provider_A(Qtk.Provider):
+   class Provider_A(Aduct.Provider):
        def __init__(self, name):
 
            super().__init__(name)
@@ -188,7 +188,7 @@ The source code for our providers are as follows. If you are lazy to copy-paste,
                entry.set_editable(self.editable)
 
 
-   class Provider_B(Qtk.Provider):
+   class Provider_B(Aduct.Provider):
        def __init__(self, name):
 
            super().__init__(name)
@@ -257,7 +257,7 @@ The source code for our providers are as follows. If you are lazy to copy-paste,
            return self.get_a_child(props["child_name"])
 
 
-   class Provider_C(Qtk.Provider):
+   class Provider_C(Aduct.Provider):
        def __init__(self, name):
 
            super().__init__(name)
@@ -296,9 +296,9 @@ The source code for our providers are as follows. If you are lazy to copy-paste,
 We prefer keeping the above code in a separate file (could be named
 *providers.py*), because in practical situations (while making real
 applications) it is better to isolate providers from the core application,
-this makes it easy to maintain. The reason we imported Gtk from Qtk
+this makes it easy to maintain. The reason we imported Gtk from Aduct
 is not so crucial. It was done to reduce typing, also it makes sure that
-we are using the same version of Gtk that Qtk is using.
+we are using the same version of Gtk that Aduct is using.
 
 Designing the Application
 -------------------------
@@ -318,9 +318,9 @@ menu). Popovers are better as they cover only a small area and are not
 as annoying as popup windows. We populate the menu with model buttons.
 
 Before adding providers, we should also spend time in a kind of
-functions known as *creator functions*. As Qtk is an interface to
+functions known as *creator functions*. As Aduct is an interface to
 dynamically modify an interface, you need to be able to dynamically make
-Qtk widgets. So we make small functions that, when called give the
+Aduct widgets. So we make small functions that, when called give the
 required widget. An advantage of such functions is that they can be used
 to add custom changes to widgets like changing border spacing,
 connecting signals and automate other repeating tasks. The first few
@@ -330,8 +330,8 @@ lines of *app.py* is given below. (The complete file is also available for
 .. code:: python
    :number-lines:
 
-   import Qtk
-   from Qtk import Gtk
+   import Aduct
+   from Aduct import Gtk
 
    from providers import A, B, C # providers from provider.py
 
@@ -339,24 +339,24 @@ lines of *app.py* is given below. (The complete file is also available for
 
 
    def new_element():
-       element = Qtk.Element(margin=5)
+       element = Aduct.Element(margin=5)
        element.connect("action-clicked", show_popover_element)
        # show_popover_element is a function to show the popover for an element.
        return element
 
 
    def new_bin():
-       bin_ = Qtk.Bin()
+       bin_ = Aduct.Bin()
        return bin_
 
 
    def new_paned(orientation=0):
-       paned = Qtk.Paned(orientation=orientation)
+       paned = Aduct.Paned(orientation=orientation)
        return paned
 
 
    def new_notebook():
-       notebook = Qtk.Notebook()
+       notebook = Aduct.Notebook()
        icon = Gtk.Image.new_from_icon_name("list-add", 2)
        notebook.set_action_button(icon, 1)
        notebook.connect("action-clicked", show_popover_notebook)
@@ -425,7 +425,7 @@ Now let us make some more functions that can modify the interface.
 
    def remove_element(wid):
        global last_widget
-       Qtk.remove_element(last_widget, last_widget.get_parent())
+       Aduct.remove_element(last_widget, last_widget.get_parent())
 
 
    def add_to_paned(wid, position):
@@ -434,26 +434,26 @@ Now let us make some more functions that can modify the interface.
        paned = new_paned()
        if position == 0:
            paned.set_orientation(0)
-           Qtk.add_to_paned(last_widget, element, paned, 1)
+           Aduct.add_to_paned(last_widget, element, paned, 1)
        elif position == 1:
            paned.set_orientation(0)
-           Qtk.add_to_paned(last_widget, element, paned, 2)
+           Aduct.add_to_paned(last_widget, element, paned, 2)
        elif position == 2:
            paned.set_orientation(1)
-           Qtk.add_to_paned(last_widget, element, paned, 1)
+           Aduct.add_to_paned(last_widget, element, paned, 1)
        elif position == 3:
            paned.set_orientation(1)
-           Qtk.add_to_paned(last_widget, element, paned, 2)
+           Aduct.add_to_paned(last_widget, element, paned, 2)
 
 
    def add_to_notebook(wid, position):
        global last_widget
        notebook = new_notebook()
        notebook.set_tab_pos(position)
-       Qtk.add_to_notebook(last_widget, notebook)
+       Aduct.add_to_notebook(last_widget, notebook)
 
 Please read :ref:`functions` to know the details of the functions
-used from Qtk. Next we add more functions for changing child at an
+used from Aduct. Next we add more functions for changing child at an
 element, saving and loading interfaces.
 
 .. code:: python
@@ -463,26 +463,26 @@ element, saving and loading interfaces.
    def change_child_at_element(wid, prov, child_name):
        global last_widget
        if last_widget.type == "element":
-           Qtk.change_child_at_element(last_widget, prov, child_name)
+           Aduct.change_child_at_element(last_widget, prov, child_name)
        elif last_widget.type == "notebook":
            element = new_element()
-           Qtk.change_child_at_element(element, prov, child_name)
-           Qtk.add_to_notebook(element, last_widget)
+           Aduct.change_child_at_element(element, prov, child_name)
+           Aduct.add_to_notebook(element, last_widget)
            element.show_all()
 
 
    def save_interface(wid):
        from json import dump
 
-       with open("qtk.ui", "w") as fp:
-           ui_dict = Qtk.get_interface(top_level)
+       with open("aduct.ui", "w") as fp:
+           ui_dict = Aduct.get_interface(top_level)
            dump(ui_dict, fp, indent=2)
 
 
    def load_interface(wid):
        from json import load
 
-       with open("qtk.ui") as fp:
+       with open("aduct.ui") as fp:
            ui_dict = load(fp)
            creator_maps = {
                "type": {
@@ -495,7 +495,7 @@ element, saving and loading interfaces.
            init_maps = {
                "provider": {"Provider A": A, "Provider B": B, "Provider C": C, None: None}
            }
-           Qtk.set_interface(ui_dict, top_level, creator_maps, init_maps)
+           Aduct.set_interface(ui_dict, top_level, creator_maps, init_maps)
 
 The first function does some straight-forward tasks. It changes a child
 at element when called from element. In case it is called from a
@@ -504,17 +504,17 @@ to the element. Then we append the element to the notebook.
 
 The second function gets the interface; it is a dictionary with strings,
 numbers and None. So it can be dumped using *json* in human-readable
-format. We are using a file named *qtk.ui* for saving and loading
+format. We are using a file named *aduct.ui* for saving and loading
 interfaces. ``top_level`` (declared later) is the view or element from
 which the interface should be fetched. It is usually the root widget.
 
 The third function surely deserves a mention. After completing this
 tutorial, you can run the script (*app.py*), try playing with the
 interface. Then save the interface. After that open the file named
-*qtk.ui*, you will see a *JSON-styled* data with keys like *type*,
-*provider* etc. Now when you ask Qtk to create the interface from the
+*aduct.ui*, you will see a *JSON-styled* data with keys like *type*,
+*provider* etc. Now when you ask Aduct to create the interface from the
 same file, it replaces all the required values with objects (or widgets
-here). The convention is that key *type* states the type of Qtk
+here). The convention is that key *type* states the type of Aduct
 widget and *provider* states the name of provider.
 
 The dictionaries whose name ends with *maps*, does the job of replacing
@@ -658,9 +658,9 @@ the interface you saved.
 Let us discuss something we promised earlier. Run the application and
 add an element to notebook. Now right-click the element’s action button
 and click on *Add to side notebook*, you should see an error in your
-terminal or console that a Qtk notebook can only have a Qtk
-element as child. It is not a bug, it is a feature! Qtk notebook can
-only attach a named child and the only named child in Qtk is
+terminal or console that a Aduct notebook can only have a Aduct
+element as child. It is not a bug, it is a feature! Aduct notebook can
+only attach a named child and the only named child in Aduct is
 element. So you will get error when you try to add a child of irrelevant
 type to a notebook. This is the reason we changed the sensitivities of a
 few menu items. Because we don’t want to allow users to do something not
@@ -682,7 +682,7 @@ when you remove its one child, the purpose of a paned is destroyed, so
 it becomes a bin. Similarly, a notebook is meant to hold a number of
 elements and show only one of them at a time. A notebook with only page
 is against its purpose, so it becomes a bin. For bin, the same logic is
-applied. A Qtk bin is, by convention, used as a top-level for holding
+applied. A Aduct bin is, by convention, used as a top-level for holding
 other view. When you remove the element from it, the complete interface
 link is broken and you get a blank space, where no kind of interaction
 is possible. To avoid this, bin always clears the element instead of
@@ -708,7 +708,7 @@ Everyone has a brush and seven basic colors. It depends on the painter how
 great he/she is going to make his/her art look. He/she may have a different ideology
 and style, its unique and can’t be duplicated.
 
-Same in case of an application, Qtk is like brush and
+Same in case of an application, Aduct is like brush and
 paint, it lies in your method, how well you are going to utilize it.
 Sometimes it could come out worse, where you should surely retry.
 Sometimes it could come great, where you should share the method with

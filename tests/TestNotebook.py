@@ -1,10 +1,10 @@
 import unittest
-import Qtk
-from Qtk import Gtk
+import Aduct
+from Aduct import Gtk
 
 
 def new_element():
-    element = Qtk.Element()
+    element = Aduct.Element()
     return element
 
 
@@ -17,7 +17,7 @@ class TestNotebook(unittest.TestCase):
     def setUp(self):
 
         self.element = new_element()
-        self.notebook = Qtk.Notebook()
+        self.notebook = Aduct.Notebook()
 
     def tearDown(self):
 

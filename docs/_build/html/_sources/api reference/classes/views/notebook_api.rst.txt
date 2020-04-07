@@ -1,7 +1,7 @@
 Notebook
 ========
 
-.. automodule:: Qtk.Views.Notebook
+.. automodule:: Aduct.Views.Notebook
    :members:
    :undoc-members:
    :show-inheritance:

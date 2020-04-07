@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Making an Application &mdash; Quanta Tool Kit (Qtk) 1.0 documentation</title>
+  <title>Making an Application &mdash; Aduct 1.0 documentation</title>
   
 
   
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Quanta Tool Kit (Qtk)
+            <a href="../index.html" class="icon icon-home"> Aduct
           
 
           
@@ -105,7 +105,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quanta Tool Kit (Qtk)</a>
+          <a href="../index.html">Aduct</a>
         
       </nav>
 
@@ -245,7 +245,7 @@ We quit Gtk’s main loop when the main window is destroyed.</div>
 <div class="section" id="making-providers">
 <h2>Making Providers<a class="headerlink" href="#making-providers" title="Permalink to this headline">¶</a></h2>
 <p>Providers are the core part of our application. Because of the design
-philosophy of Qtk, every part of an application behaves like a
+philosophy of Aduct, every part of an application behaves like a
 plugin. This makes an application modular in every way. To keep things
 simple, we make only three providers.</p>
 <ul>
@@ -273,17 +273,17 @@ button opens the file for displaying.</div>
 copy the code for Provider C and change the text for label, but the
 results will vary.</p>
 </div>
-<p>To make providers, we inherit <a class="reference internal" href="../api reference/classes/provider_api.html#module-Qtk.Provider" title="Qtk.Provider"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qtk.Provider</span></code></a>. Then we add the required
-methods (please refer <a class="reference internal" href="../api reference/classes/provider_api.html#module-Qtk.Provider" title="Qtk.Provider"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Qtk.Provider</span></code></a> for more details on required
+<p>To make providers, we inherit <a class="reference internal" href="../api reference/classes/provider_api.html#module-Aduct.Provider" title="Aduct.Provider"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aduct.Provider</span></code></a>. Then we add the required
+methods (please refer <a class="reference internal" href="../api reference/classes/provider_api.html#module-Aduct.Provider" title="Aduct.Provider"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Aduct.Provider</span></code></a> for more details on required
 methods).</p>
-<p>In Qtk, you will often see variables named <code class="docutils literal notranslate"><span class="pre">child_dict</span></code>. A <code class="docutils literal notranslate"><span class="pre">child_dict</span></code>
+<p>In Aduct, you will often see variables named <code class="docutils literal notranslate"><span class="pre">child_dict</span></code>. A <code class="docutils literal notranslate"><span class="pre">child_dict</span></code>
 is of the following format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">child_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;child&quot;</span><span class="p">:</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Widget</span><span class="p">,</span>
     <span class="s2">&quot;child_name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="s2">&quot;icon&quot;</span><span class="p">:</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span>
     <span class="s2">&quot;header_child&quot;</span><span class="p">:</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Widget</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">Provider</span>
+    <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">Provider</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -468,11 +468,11 @@ is of the following format.</p>
 177
 178
 179
-180</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Qtk</span>
-<span class="kn">from</span> <span class="nn">Qtk</span> <span class="kn">import</span> <span class="n">Gtk</span>
+180</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Aduct</span>
+<span class="kn">from</span> <span class="nn">Aduct</span> <span class="kn">import</span> <span class="n">Gtk</span>
 
 
-<span class="k">class</span> <span class="nc">Provider_A</span><span class="p">(</span><span class="n">Qtk</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Provider_A</span><span class="p">(</span><span class="n">Aduct</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -544,7 +544,7 @@ is of the following format.</p>
             <span class="n">entry</span><span class="o">.</span><span class="n">set_editable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">editable</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">Provider_B</span><span class="p">(</span><span class="n">Qtk</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Provider_B</span><span class="p">(</span><span class="n">Aduct</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -613,7 +613,7 @@ is of the following format.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_a_child</span><span class="p">(</span><span class="n">props</span><span class="p">[</span><span class="s2">&quot;child_name&quot;</span><span class="p">])</span>
 
 
-<span class="k">class</span> <span class="nc">Provider_C</span><span class="p">(</span><span class="n">Qtk</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Provider_C</span><span class="p">(</span><span class="n">Aduct</span><span class="o">.</span><span class="n">Provider</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -653,9 +653,9 @@ is of the following format.</p>
 <p>We prefer keeping the above code in a separate file (could be named
 <em>providers.py</em>), because in practical situations (while making real
 applications) it is better to isolate providers from the core application,
-this makes it easy to maintain. The reason we imported Gtk from Qtk
+this makes it easy to maintain. The reason we imported Gtk from Aduct
 is not so crucial. It was done to reduce typing, also it makes sure that
-we are using the same version of Gtk that Qtk is using.</p>
+we are using the same version of Gtk that Aduct is using.</p>
 </div>
 <div class="section" id="designing-the-application">
 <h2>Designing the Application<a class="headerlink" href="#designing-the-application" title="Permalink to this headline">¶</a></h2>
@@ -672,9 +672,9 @@ distracting. The second option is drop-down menu (also known as popover
 menu). Popovers are better as they cover only a small area and are not
 as annoying as popup windows. We populate the menu with model buttons.</p>
 <p>Before adding providers, we should also spend time in a kind of
-functions known as <em>creator functions</em>. As Qtk is an interface to
+functions known as <em>creator functions</em>. As Aduct is an interface to
 dynamically modify an interface, you need to be able to dynamically make
-Qtk widgets. So we make small functions that, when called give the
+Aduct widgets. So we make small functions that, when called give the
 required widget. An advantage of such functions is that they can be used
 to add custom changes to widgets like changing border spacing,
 connecting signals and automate other repeating tasks. The first few
@@ -711,8 +711,8 @@ lines of <em>app.py</em> is given below. (The complete file is also available fo
 29
 30
 31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Qtk</span>
-<span class="kn">from</span> <span class="nn">Qtk</span> <span class="kn">import</span> <span class="n">Gtk</span>
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Aduct</span>
+<span class="kn">from</span> <span class="nn">Aduct</span> <span class="kn">import</span> <span class="n">Gtk</span>
 
 <span class="kn">from</span> <span class="nn">providers</span> <span class="kn">import</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="c1"># providers from provider.py</span>
 
@@ -720,24 +720,24 @@ lines of <em>app.py</em> is given below. (The complete file is also available fo
 
 
 <span class="k">def</span> <span class="nf">new_element</span><span class="p">():</span>
-    <span class="n">element</span> <span class="o">=</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">element</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;action-clicked&quot;</span><span class="p">,</span> <span class="n">show_popover_element</span><span class="p">)</span>
     <span class="c1"># show_popover_element is a function to show the popover for an element.</span>
     <span class="k">return</span> <span class="n">element</span>
 
 
 <span class="k">def</span> <span class="nf">new_bin</span><span class="p">():</span>
-    <span class="n">bin_</span> <span class="o">=</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">Bin</span><span class="p">()</span>
+    <span class="n">bin_</span> <span class="o">=</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">Bin</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">bin_</span>
 
 
 <span class="k">def</span> <span class="nf">new_paned</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">paned</span> <span class="o">=</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">Paned</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">orientation</span><span class="p">)</span>
+    <span class="n">paned</span> <span class="o">=</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">Paned</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="n">orientation</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">paned</span>
 
 
 <span class="k">def</span> <span class="nf">new_notebook</span><span class="p">():</span>
-    <span class="n">notebook</span> <span class="o">=</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">Notebook</span><span class="p">()</span>
+    <span class="n">notebook</span> <span class="o">=</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">Notebook</span><span class="p">()</span>
     <span class="n">icon</span> <span class="o">=</span> <span class="n">Gtk</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">new_from_icon_name</span><span class="p">(</span><span class="s2">&quot;list-add&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">notebook</span><span class="o">.</span><span class="n">set_action_button</span><span class="p">(</span><span class="n">icon</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">notebook</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;action-clicked&quot;</span><span class="p">,</span> <span class="n">show_popover_notebook</span><span class="p">)</span>
@@ -856,7 +856,7 @@ later why we are changing sensitivities of model buttons.</p>
 27
 28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_element</span><span class="p">(</span><span class="n">wid</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">last_widget</span>
-    <span class="n">Qtk</span><span class="o">.</span><span class="n">remove_element</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">last_widget</span><span class="o">.</span><span class="n">get_parent</span><span class="p">())</span>
+    <span class="n">Aduct</span><span class="o">.</span><span class="n">remove_element</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">last_widget</span><span class="o">.</span><span class="n">get_parent</span><span class="p">())</span>
 
 
 <span class="k">def</span> <span class="nf">add_to_paned</span><span class="p">(</span><span class="n">wid</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
@@ -865,27 +865,27 @@ later why we are changing sensitivities of model buttons.</p>
     <span class="n">paned</span> <span class="o">=</span> <span class="n">new_paned</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">position</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">paned</span><span class="o">.</span><span class="n">set_orientation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">position</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">paned</span><span class="o">.</span><span class="n">set_orientation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">position</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">paned</span><span class="o">.</span><span class="n">set_orientation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">position</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">paned</span><span class="o">.</span><span class="n">set_orientation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_paned</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">element</span><span class="p">,</span> <span class="n">paned</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">add_to_notebook</span><span class="p">(</span><span class="n">wid</span><span class="p">,</span> <span class="n">position</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">last_widget</span>
     <span class="n">notebook</span> <span class="o">=</span> <span class="n">new_notebook</span><span class="p">()</span>
     <span class="n">notebook</span><span class="o">.</span><span class="n">set_tab_pos</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
-    <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_notebook</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">notebook</span><span class="p">)</span>
+    <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_notebook</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">notebook</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Please read <a class="reference internal" href="../api reference/functions.html#module-Qtk"><span class="std std-ref">Functions</span></a> to know the details of the functions
-used from Qtk. Next we add more functions for changing child at an
+<p>Please read <a class="reference internal" href="../api reference/functions.html#module-Aduct"><span class="std std-ref">Functions</span></a> to know the details of the functions
+used from Aduct. Next we add more functions for changing child at an
 element, saving and loading interfaces.</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -925,26 +925,26 @@ element, saving and loading interfaces.</p>
 36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_child_at_element</span><span class="p">(</span><span class="n">wid</span><span class="p">,</span> <span class="n">prov</span><span class="p">,</span> <span class="n">child_name</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">last_widget</span>
     <span class="k">if</span> <span class="n">last_widget</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;element&quot;</span><span class="p">:</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">change_child_at_element</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">prov</span><span class="p">,</span> <span class="n">child_name</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">change_child_at_element</span><span class="p">(</span><span class="n">last_widget</span><span class="p">,</span> <span class="n">prov</span><span class="p">,</span> <span class="n">child_name</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">last_widget</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;notebook&quot;</span><span class="p">:</span>
         <span class="n">element</span> <span class="o">=</span> <span class="n">new_element</span><span class="p">()</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">change_child_at_element</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">prov</span><span class="p">,</span> <span class="n">child_name</span><span class="p">)</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">add_to_notebook</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">last_widget</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">change_child_at_element</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">prov</span><span class="p">,</span> <span class="n">child_name</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">add_to_notebook</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">last_widget</span><span class="p">)</span>
         <span class="n">element</span><span class="o">.</span><span class="n">show_all</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">save_interface</span><span class="p">(</span><span class="n">wid</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">dump</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;qtk.ui&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-        <span class="n">ui_dict</span> <span class="o">=</span> <span class="n">Qtk</span><span class="o">.</span><span class="n">get_interface</span><span class="p">(</span><span class="n">top_level</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;aduct.ui&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">ui_dict</span> <span class="o">=</span> <span class="n">Aduct</span><span class="o">.</span><span class="n">get_interface</span><span class="p">(</span><span class="n">top_level</span><span class="p">)</span>
         <span class="n">dump</span><span class="p">(</span><span class="n">ui_dict</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">load_interface</span><span class="p">(</span><span class="n">wid</span><span class="p">):</span>
     <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">load</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;qtk.ui&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;aduct.ui&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
         <span class="n">ui_dict</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
         <span class="n">creator_maps</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -957,7 +957,7 @@ element, saving and loading interfaces.</p>
         <span class="n">init_maps</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;Provider A&quot;</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;Provider B&quot;</span><span class="p">:</span> <span class="n">B</span><span class="p">,</span> <span class="s2">&quot;Provider C&quot;</span><span class="p">:</span> <span class="n">C</span><span class="p">,</span> <span class="kc">None</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">Qtk</span><span class="o">.</span><span class="n">set_interface</span><span class="p">(</span><span class="n">ui_dict</span><span class="p">,</span> <span class="n">top_level</span><span class="p">,</span> <span class="n">creator_maps</span><span class="p">,</span> <span class="n">init_maps</span><span class="p">)</span>
+        <span class="n">Aduct</span><span class="o">.</span><span class="n">set_interface</span><span class="p">(</span><span class="n">ui_dict</span><span class="p">,</span> <span class="n">top_level</span><span class="p">,</span> <span class="n">creator_maps</span><span class="p">,</span> <span class="n">init_maps</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>The first function does some straight-forward tasks. It changes a child
@@ -966,16 +966,16 @@ notebook, we make a new element, get a child from provider and add it
 to the element. Then we append the element to the notebook.</p>
 <p>The second function gets the interface; it is a dictionary with strings,
 numbers and None. So it can be dumped using <em>json</em> in human-readable
-format. We are using a file named <em>qtk.ui</em> for saving and loading
+format. We are using a file named <em>aduct.ui</em> for saving and loading
 interfaces. <code class="docutils literal notranslate"><span class="pre">top_level</span></code> (declared later) is the view or element from
 which the interface should be fetched. It is usually the root widget.</p>
 <p>The third function surely deserves a mention. After completing this
 tutorial, you can run the script (<em>app.py</em>), try playing with the
 interface. Then save the interface. After that open the file named
-<em>qtk.ui</em>, you will see a <em>JSON-styled</em> data with keys like <em>type</em>,
-<em>provider</em> etc. Now when you ask Qtk to create the interface from the
+<em>aduct.ui</em>, you will see a <em>JSON-styled</em> data with keys like <em>type</em>,
+<em>provider</em> etc. Now when you ask Aduct to create the interface from the
 same file, it replaces all the required values with objects (or widgets
-here). The convention is that key <em>type</em> states the type of Qtk
+here). The convention is that key <em>type</em> states the type of Aduct
 widget and <em>provider</em> states the name of provider.</p>
 <p>The dictionaries whose name ends with <em>maps</em>, does the job of replacing
 strings or numbers with an object. They are nested-dictionaries
@@ -1195,9 +1195,9 @@ the interface you saved.</p>
 <p>Let us discuss something we promised earlier. Run the application and
 add an element to notebook. Now right-click the element’s action button
 and click on <em>Add to side notebook</em>, you should see an error in your
-terminal or console that a Qtk notebook can only have a Qtk
-element as child. It is not a bug, it is a feature! Qtk notebook can
-only attach a named child and the only named child in Qtk is
+terminal or console that a Aduct notebook can only have a Aduct
+element as child. It is not a bug, it is a feature! Aduct notebook can
+only attach a named child and the only named child in Aduct is
 element. So you will get error when you try to add a child of irrelevant
 type to a notebook. This is the reason we changed the sensitivities of a
 few menu items. Because we don’t want to allow users to do something not
@@ -1217,7 +1217,7 @@ when you remove its one child, the purpose of a paned is destroyed, so
 it becomes a bin. Similarly, a notebook is meant to hold a number of
 elements and show only one of them at a time. A notebook with only page
 is against its purpose, so it becomes a bin. For bin, the same logic is
-applied. A Qtk bin is, by convention, used as a top-level for holding
+applied. A Aduct bin is, by convention, used as a top-level for holding
 other view. When you remove the element from it, the complete interface
 link is broken and you get a blank space, where no kind of interaction
 is possible. To avoid this, bin always clears the element instead of
@@ -1238,7 +1238,7 @@ welcome to suggest your edits.</p>
 Everyone has a brush and seven basic colors. It depends on the painter how
 great he/she is going to make his/her art look. He/she may have a different ideology
 and style, its unique and can’t be duplicated.</p>
-<p>Same in case of an application, Qtk is like brush and
+<p>Same in case of an application, Aduct is like brush and
 paint, it lies in your method, how well you are going to utilize it.
 Sometimes it could come out worse, where you should surely retry.
 Sometimes it could come great, where you should share the method with

@@ -1,8 +1,8 @@
-import Qtk
-from Qtk import Gtk
+import Aduct
+from Aduct import Gtk
 
 
-class Provider_A(Qtk.Provider):
+class Provider_A(Aduct.Provider):
     def __init__(self, name):
 
         super().__init__(name)
@@ -74,7 +74,7 @@ class Provider_A(Qtk.Provider):
             entry.set_editable(self.editable)
 
 
-class Provider_B(Qtk.Provider):
+class Provider_B(Aduct.Provider):
     def __init__(self, name):
 
         super().__init__(name)
@@ -143,7 +143,7 @@ class Provider_B(Qtk.Provider):
         return self.get_a_child(props["child_name"])
 
 
-class Provider_C(Qtk.Provider):
+class Provider_C(Aduct.Provider):
     def __init__(self, name):
 
         super().__init__(name)

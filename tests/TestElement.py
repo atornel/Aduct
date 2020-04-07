@@ -1,10 +1,10 @@
 import unittest
 
-import Qtk
-from Qtk import Gtk
+import Aduct
+from Aduct import Gtk
 
 
-class TestProvider(Qtk.Provider):
+class TestProvider(Aduct.Provider):
     def __init__(self, name, *args, **kwargs):
         super().__init__(name, *args, **kwargs)
         self.name = name
@@ -60,7 +60,7 @@ class TestElement(unittest.TestCase):
 
     def setUp(self):
 
-        self.element = Qtk.Element()
+        self.element = Aduct.Element()
 
     def tearDown(self):
 

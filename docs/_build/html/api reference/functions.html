@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Functions &mdash; Quanta Tool Kit (Qtk) 1.0 documentation</title>
+  <title>Functions &mdash; Aduct 1.0 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Quanta Tool Kit (Qtk)
+            <a href="../index.html" class="icon icon-home"> Aduct
           
 
           
@@ -104,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quanta Tool Kit (Qtk)</a>
+          <a href="../index.html">Aduct</a>
         
       </nav>
 
@@ -156,11 +156,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-Qtk">
-<span id="functions"></span><h1>Functions<a class="headerlink" href="#module-Qtk" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-Aduct">
+<span id="functions"></span><h1>Functions<a class="headerlink" href="#module-Aduct" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="Qtk.add_to_notebook">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">add_to_notebook</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">notebook</em>, <em class="sig-param">position=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.add_to_notebook" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.add_to_notebook">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">add_to_notebook</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">notebook</em>, <em class="sig-param">position=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.add_to_notebook" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an element to the notebook at given position.</p>
 <p>When the given <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> is already a child of some container, the function removes it from
 the parent and adds the <code class="xref py py-obj docutils literal notranslate"><span class="pre">notebook</span></code> to parent. Then the orphan <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> is added to
@@ -168,21 +168,21 @@ the parent and adds the <code class="xref py py-obj docutils literal notranslate
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Qtk.Element" title="Qtk.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element to be added to <cite>notebook</cite>.</p></li>
-<li><p><strong>notebook</strong> (<a class="reference internal" href="classes/views/notebook_api.html#module-Qtk.Views.Notebook" title="Qtk.Views.Notebook"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Notebook</span></code></a>) – The notebook to which <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> has to be added</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Aduct.Element" title="Aduct.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element to be added to <cite>notebook</cite>.</p></li>
+<li><p><strong>notebook</strong> (<a class="reference internal" href="classes/views/notebook_api.html#module-Aduct.Views.Notebook" title="Aduct.Views.Notebook"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Notebook</span></code></a>) – The notebook to which <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> has to be added</p></li>
 <li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The position at which <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> has to be inserted. When not provided, it takes up
 value of -1, which inserts the element as last page.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – When given <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> is not a <a class="reference internal" href="classes/element_api.html#module-Qtk.Element" title="Qtk.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – When given <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> is not a <a class="reference internal" href="classes/element_api.html#module-Aduct.Element" title="Aduct.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.add_to_paned">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">add_to_paned</code><span class="sig-paren">(</span><em class="sig-param">child1</em>, <em class="sig-param">child2</em>, <em class="sig-param">paned</em>, <em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.add_to_paned" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.add_to_paned">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">add_to_paned</code><span class="sig-paren">(</span><em class="sig-param">child1</em>, <em class="sig-param">child2</em>, <em class="sig-param">paned</em>, <em class="sig-param">position</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.add_to_paned" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds the children to given paned determined by position.</p>
 <p>The main child <code class="xref py py-obj docutils literal notranslate"><span class="pre">child1</span></code> is added at first panel if <code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code> is 1 or second panel if
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code> is 2. With respect to position of <code class="xref py py-obj docutils literal notranslate"><span class="pre">child1</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">child2</span></code> is added at the
@@ -195,7 +195,7 @@ position. Then, the orphans <code class="xref py py-obj docutils literal notrans
 <li><p><strong>child1</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a>) – The main child which has to be added at given <code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code>.</p></li>
 <li><p><strong>child2</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a>) – The other child which has to be added at the complement of given <code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code>.
 It has to be an orphan.</p></li>
-<li><p><strong>paned</strong> (<a class="reference internal" href="classes/views/paned_api.html#module-Qtk.Views.Paned" title="Qtk.Views.Paned"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Paned</span></code></a>) – The paned to which the children has to be added.</p></li>
+<li><p><strong>paned</strong> (<a class="reference internal" href="classes/views/paned_api.html#module-Aduct.Views.Paned" title="Aduct.Views.Paned"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Paned</span></code></a>) – The paned to which the children has to be added.</p></li>
 <li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – An integer value that is either 1 or 2. The complement of 1 is 2 and vice-versa.</p></li>
 </ul>
 </dd>
@@ -203,16 +203,16 @@ It has to be an orphan.</p></li>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.add_to_view">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">add_to_view</code><span class="sig-paren">(</span><em class="sig-param">child</em>, <em class="sig-param">view</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.add_to_view" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.add_to_view">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">add_to_view</code><span class="sig-paren">(</span><em class="sig-param">child</em>, <em class="sig-param">view</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.add_to_view" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a child to the view.</p>
 <p>If <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> is not an orphan, it is removed from its parent and <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is added back
 in its place. Then <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> is added to <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>child</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a> or Qtk.Element.Element) – The child that has to be added to <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>. It has to be an orphan.</p></li>
-<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view to which <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> has to be added.</p></li>
+<li><p><strong>child</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a> or Aduct.Element.Element) – The child that has to be added to <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>. It has to be an orphan.</p></li>
+<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view to which <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> has to be added.</p></li>
 </ul>
 </dd>
 </dl>
@@ -222,23 +222,23 @@ in its place. Then <code class="xref py py-obj docutils literal notranslate"><sp
 the properties of <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> and <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>. When the <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> already has a child or
 requires more information about adding it, exceptions are raised. Still, the <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> may
 try its best to add the <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> at the possible place, only when it can.</p>
-<p>Incase of <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> being a <a class="reference internal" href="classes/views/notebook_api.html#module-Qtk.Views.Notebook" title="Qtk.Views.Notebook"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Notebook</span></code></a>, it appends the <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> to the last
-position. But it requires <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> to be a <a class="reference internal" href="classes/element_api.html#module-Qtk.Element" title="Qtk.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>. So at either case, you still
+<p>Incase of <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> being a <a class="reference internal" href="classes/views/notebook_api.html#module-Aduct.Views.Notebook" title="Aduct.Views.Notebook"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Notebook</span></code></a>, it appends the <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> to the last
+position. But it requires <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> to be a <a class="reference internal" href="classes/element_api.html#module-Aduct.Element" title="Aduct.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>. So at either case, you still
 have limitations that may end up in a weird result. For the same reasons, <code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code> has
 to be an orphan.</p>
 </div>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.change_child_at_element">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">change_child_at_element</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">provider</em>, <em class="sig-param">child_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.change_child_at_element" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.change_child_at_element">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">change_child_at_element</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">provider</em>, <em class="sig-param">child_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.change_child_at_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the child at given element with a child of given name provided by provider.</p>
 <p>The previous child at <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> is cleared, after which the new child is added.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Qtk.Element" title="Qtk.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element whose child has to be changed.</p></li>
-<li><p><strong>provider</strong> (<a class="reference internal" href="classes/provider_api.html#module-Qtk.Provider" title="Qtk.Provider"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Provider</span></code></a>) – The provider that acts as source of child.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Aduct.Element" title="Aduct.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element whose child has to be changed.</p></li>
+<li><p><strong>provider</strong> (<a class="reference internal" href="classes/provider_api.html#module-Aduct.Provider" title="Aduct.Provider"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Provider</span></code></a>) – The provider that acts as source of child.</p></li>
 <li><p><strong>child_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of child to be added to <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code>.</p></li>
 </ul>
 </dd>
@@ -246,12 +246,12 @@ to be an orphan.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.get_interface">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">get_interface</code><span class="sig-paren">(</span><em class="sig-param">top_level</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.get_interface" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.get_interface">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">get_interface</code><span class="sig-paren">(</span><em class="sig-param">top_level</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.get_interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the interface starting from the given top level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>top_level</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – A view which acts as the root widget.</p>
+<dd class="field-odd"><p><strong>top_level</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – A view which acts as the root widget.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary with properties to build interface.</p>
@@ -263,49 +263,49 @@ to be an orphan.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.remove_element">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">remove_element</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">view</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.remove_element" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.remove_element">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">remove_element</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">view</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.remove_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes the given element from view.</p>
-<p>When <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is a <a class="reference internal" href="classes/views/bin_api.html#module-Qtk.Views.Bin" title="Qtk.Views.Bin"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Bin</span></code></a>, it clears <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code>. For other types of views, it
+<p>When <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is a <a class="reference internal" href="classes/views/bin_api.html#module-Aduct.Views.Bin" title="Aduct.Views.Bin"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Bin</span></code></a>, it clears <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code>. For other types of views, it
 removes <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code>. Then, if the number of children in <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is one, it replaces
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> with the other child of <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Qtk.Element" title="Qtk.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element to be removed.</p></li>
-<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view from which <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> has to be removed.</p></li>
+<li><p><strong>element</strong> (<a class="reference internal" href="classes/element_api.html#module-Aduct.Element" title="Aduct.Element"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Element</span></code></a>) – The element to be removed.</p></li>
+<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view from which <code class="xref py py-obj docutils literal notranslate"><span class="pre">element</span></code> has to be removed.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.replace_child">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">view</em>, <em class="sig-param">child1</em>, <em class="sig-param">child2</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.replace_child" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.replace_child">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">replace_child</code><span class="sig-paren">(</span><em class="sig-param">view</em>, <em class="sig-param">child1</em>, <em class="sig-param">child2</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.replace_child" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replaces the given child of a view with another child.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view whose child has to be replaced.</p></li>
+<li><p><strong>view</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The view whose child has to be replaced.</p></li>
 <li><p><strong>child1</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a>) – The child of given view which has to be replaced.</p></li>
 <li><p><strong>child2</strong> (<a class="reference external" href="https://lazka.github.io/pgi-docs/Gtk-3.0/classes/Widget.html#Gtk.Widget" title="(in Gtk 3.0 v3.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gtk.Widget</span></code></a>) – The child which replaces <cite>child1</cite> in <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – Raised when the given <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is not a <a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – Raised when the given <code class="xref py py-obj docutils literal notranslate"><span class="pre">view</span></code> is not a <a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="Qtk.set_interface">
-<code class="sig-prename descclassname">Qtk.</code><code class="sig-name descname">set_interface</code><span class="sig-paren">(</span><em class="sig-param">interface_dict</em>, <em class="sig-param">top_level</em>, <em class="sig-param">creator_maps</em>, <em class="sig-param">init_maps</em><span class="sig-paren">)</span><a class="headerlink" href="#Qtk.set_interface" title="Permalink to this definition">¶</a></dt>
+<dt id="Aduct.set_interface">
+<code class="sig-prename descclassname">Aduct.</code><code class="sig-name descname">set_interface</code><span class="sig-paren">(</span><em class="sig-param">interface_dict</em>, <em class="sig-param">top_level</em>, <em class="sig-param">creator_maps</em>, <em class="sig-param">init_maps</em><span class="sig-paren">)</span><a class="headerlink" href="#Aduct.set_interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the interface starting from given the top level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>interface_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – A dictionary that can be used to set interface.</p></li>
-<li><p><strong>top_level</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Qtk.Views.View" title="Qtk.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The root widget from which the interface has to be set.</p></li>
+<li><p><strong>top_level</strong> (<a class="reference internal" href="classes/views/view_api.html#module-Aduct.Views.View" title="Aduct.Views.View"><code class="xref py py-mod docutils literal notranslate"><span class="pre">View</span></code></a>) – The root widget from which the interface has to be set.</p></li>
 <li><p><strong>creator_maps</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – A dictionary of format <code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">(func,</span> <span class="pre">args,</span> <span class="pre">kwargs)}</span></code>, that is used to create the required
 object. The object is then created using <code class="docutils literal notranslate"><span class="pre">func(*args,</span> <span class="pre">**kwargs)</span></code> and is substitued as
 value in <code class="xref py py-obj docutils literal notranslate"><span class="pre">interface_dict</span></code> which has key <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p></li>

@@ -1,5 +1,5 @@
-Welcome to Quanta Tool Kit's documentation!
-===========================================
+Welcome to Aduct's documentation!
+=================================
 
 .. toctree::
    :maxdepth: 2

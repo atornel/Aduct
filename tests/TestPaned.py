@@ -1,10 +1,10 @@
 import unittest
-import Qtk
-from Qtk import Gtk
+import Aduct
+from Aduct import Gtk
 
 
 def new_element():
-    element = Qtk.Element()
+    element = Aduct.Element()
     return element
 
 
@@ -20,7 +20,7 @@ class TestPaned(unittest.TestCase):
 
         self.element_1 = new_element()
         self.element_2 = new_element()
-        self.paned = Qtk.Paned()
+        self.paned = Aduct.Paned()
 
     def tearDown(self):
 

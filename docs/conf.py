@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath("."))
 
 # -- Project information -----------------------------------------------------
 
-project = "Quanta Tool Kit (Qtk)"
+project = "Aduct"
 copyright = "2020, Atornel"
 author = "J Arun Mani"
 

@@ -1,7 +1,7 @@
 Paned
 =====
 
-.. automodule:: Qtk.Views.Paned
+.. automodule:: Aduct.Views.Paned
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,10 +1,10 @@
 Introduction
 ============
 
-Quanta Tool Kit (Qtk) is a toolkit to design graphical applications that can be
+Aduct is a toolkit to design graphical applications that can be
 dynamically changed with a little work as possible. It is designed by
 inheriting objects provided by `Gtk <http://www.gtk.org>`__ and thus by
-following principles of Qtk with Gtk, one can make powerful
+following principles of Aduct with Gtk, one can make powerful
 applications that are easy for a developer to develop, third-party
 person to improve and end user to use.
 
@@ -75,16 +75,16 @@ There are more such issues which doesn’t go easy with a developer.
 A Solution
 ----------
 
-Qtk can be used to kick-out the above mentioned issues. Some
+Aduct can be used to kick-out the above mentioned issues. Some
 developers may be think that such issues can be avoided by writing a few
-more lines of code. And yes, Qtk is such a package made with a few
+more lines of code. And yes, Aduct is such a package made with a few
 lines of code. It is very small, but when you follow its approach, it
 saves your essential time and resources, which can be instead used in
 improving other concepts of your application.
 
-Qtk’s design principle is very simple. You make widgets that are
+Aduct’s design principle is very simple. You make widgets that are
 independent of each other. Make a basic layout of the interface, then
-sit back and relax, because Qtk now takes care of other requirements.
+sit back and relax, because Aduct now takes care of other requirements.
 We believe in *“take care of small things and big things will
 automatically be taken care”*. It should not be hidden that at first you
 may have trouble writing independent widgets, but once you are able to
@@ -93,12 +93,12 @@ make one, then you hardly need to focus in its working with interface.
 To The Point
 ------------
 
-Qtk is inspired by `Blender <http://www.blender.org>`__\ ’s
+Aduct is inspired by `Blender <http://www.blender.org>`__\ ’s
 interface. Blender has such an awesome one where it is possible for a
-user to customize it in any way they want. Qtk, which tries to mimic
+user to customize it in any way they want. Aduct, which tries to mimic
 the behavior, is written in `Python <http://www.python.org>`__ using
-Gtk. We will cover the working and making of interfaces with Qtk
-later. For now, what you need to understand is that in Qtk, we have
+Gtk. We will cover the working and making of interfaces with Aduct
+later. For now, what you need to understand is that in Aduct, we have
 two things that work together. A provider that can produce widgets and a
 view, that can hold and display them. Views come with various tweaks,
 which just need to be *enabled*. When the requirements of both are

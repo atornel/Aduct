@@ -1,10 +1,10 @@
 import unittest
-import Qtk
+import Aduct
 
 
 def new_element():
 
-    element = Qtk.Element()
+    element = Aduct.Element()
     return element
 
 
@@ -17,7 +17,7 @@ class TestBin(unittest.TestCase):
     def setUp(self):
 
         self.element = new_element()
-        self.bin_ = Qtk.Bin()
+        self.bin_ = Aduct.Bin()
 
     def tearDown(self):
 
