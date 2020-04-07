@@ -12,7 +12,7 @@ setuptools.setup(
     by both developers and users.",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/atornel/Quanta",
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
