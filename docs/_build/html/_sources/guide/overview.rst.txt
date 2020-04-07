@@ -1,9 +1,9 @@
 Overview
 ========
 
-Let us now learn how to design a flexible interface using Quanta. It
+Let us now learn how to design a flexible interface using Qtk. It
 isn’t any difficult, so let’s get started. An interface designed with
-Quanta is backed up by three things; providers, views and elements. The
+Qtk is backed up by three things; providers, views and elements. The
 following sections describe them in an elaborate manner.
 
 |overview|
@@ -45,7 +45,7 @@ a container called views.
 View
 ----
 
-View is a container of widgets. Quanta comes with three basic views,
+View is a container of widgets. Qtk comes with three basic views,
 that are enough for most of the use cases. New views can also be made
 easily if they don’t satisfy your need. The three views are :
 
@@ -75,7 +75,7 @@ one side. They are optional, so can be avoided if not needed.
 Framing an Application
 ----------------------
 
-Now we describe how to create a convenient interface using Quanta.
+Now we describe how to create a convenient interface using Qtk.
 
 -  Make all the basic things required to make the application, like
    collecting plugins, user data.
@@ -91,7 +91,7 @@ Now we describe how to create a convenient interface using Quanta.
    functions are those that can modify properties of views and elements.
 
 -  Provide a way for the users to save and load interfaces using
-   Quanta’s built-in functions.
+   Qtk’s built-in functions.
 
 The above points do not explain how they are done practically, so let’s
 get our hands wet in a short tutorial in next chapter.

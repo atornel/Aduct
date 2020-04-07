@@ -1,5 +1,5 @@
-Welcome to Quanta's documentation!
-==================================
+Welcome to Quanta Tool Kit's documentation!
+===========================================
 
 .. toctree::
    :maxdepth: 2

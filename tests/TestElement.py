@@ -1,10 +1,10 @@
 import unittest
 
-import Quanta as Qu
-from Quanta import Gtk
+import Qtk
+from Qtk import Gtk
 
 
-class TestProvider(Qu.Provider):
+class TestProvider(Qtk.Provider):
     def __init__(self, name, *args, **kwargs):
         super().__init__(name, *args, **kwargs)
         self.name = name
@@ -60,7 +60,7 @@ class TestElement(unittest.TestCase):
 
     def setUp(self):
 
-        self.element = Qu.Element()
+        self.element = Qtk.Element()
 
     def tearDown(self):
 

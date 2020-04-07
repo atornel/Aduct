@@ -1,7 +1,7 @@
 Element
 =======
 
-.. automodule:: Quanta.Element
+.. automodule:: Qtk.Element
    :members:
    :undoc-members:
    :show-inheritance:

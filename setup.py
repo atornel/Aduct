@@ -4,15 +4,15 @@ with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Quanta",
+    name="Qtk",
     version="1.0.0",
     author="J Arun Mani; Atornel",
     author_email="j.arunmani@protonmail.com",
-    description="Quanta lets you make flexible interfaces that can be easily improved and modified\
-    by both developers and users.",
+    description="Quanta Tool Kit (Qtk) lets you make flexible interfaces that can be easily\
+    improved and modified by both developers and users.",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    url="https://github.com/atornel/Quanta",
+    url="https://github.com/atornel/Quanta-Tool-Kit",
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",

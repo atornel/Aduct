@@ -1,8 +1,8 @@
-import Quanta as Qu
-from Quanta import Gtk
+import Qtk
+from Qtk import Gtk
 
 
-class Provider_A(Qu.Provider):
+class Provider_A(Qtk.Provider):
     def __init__(self, name):
 
         super().__init__(name)
@@ -74,7 +74,7 @@ class Provider_A(Qu.Provider):
             entry.set_editable(self.editable)
 
 
-class Provider_B(Qu.Provider):
+class Provider_B(Qtk.Provider):
     def __init__(self, name):
 
         super().__init__(name)
@@ -143,7 +143,7 @@ class Provider_B(Qu.Provider):
         return self.get_a_child(props["child_name"])
 
 
-class Provider_C(Qu.Provider):
+class Provider_C(Qtk.Provider):
     def __init__(self, name):
 
         super().__init__(name)

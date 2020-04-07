@@ -1,7 +1,7 @@
 Functions
 =========
 
-.. automodule:: Quanta
+.. automodule:: Qtk
    :members:
    :undoc-members:
    :show-inheritance:

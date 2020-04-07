@@ -2,11 +2,11 @@ import gi
 
 gi.require_version("GtkSource", "3.0")
 from gi.repository import GtkSource
-import Quanta as Qu
-from Quanta import Gtk
+import Qtk
+from Qtk import Gtk
 
 
-class ButtonProvider(Qu.Provider):
+class ButtonProvider(Qtk.Provider):
     def __init__(self):
         super().__init__("ButtonProvider")
         self.icon_names = [
@@ -54,7 +54,7 @@ class ButtonProvider(Qu.Provider):
         return child_dict
 
 
-class TextProvider(Qu.Provider):
+class TextProvider(Qtk.Provider):
     def __init__(self):
         super().__init__("TextProvider")
         lm = GtkSource.LanguageManager()
@@ -78,7 +78,7 @@ class TextProvider(Qu.Provider):
         return child_dict
 
 
-class ImagesProvider(Qu.Provider):
+class ImagesProvider(Qtk.Provider):
     def __init__(self):
         super().__init__("ImagesProvider")
         self.row_names = ["Nature.png", "Seashore.jpg", "Overview.png", "Dynamite.png"]
@@ -105,7 +105,7 @@ class ImagesProvider(Qu.Provider):
         return child_dict
 
 
-class ViewerProvider(Qu.Provider):
+class ViewerProvider(Qtk.Provider):
     def __init__(self):
         super().__init__("ViewerProvider")
 
@@ -139,19 +139,19 @@ last_widget = None  # The last widget (element/notebook) where popover was shown
 
 
 def new_element():
-    element = Qu.Element(margin=5)
+    element = Qtk.Element(margin=5)
     element.connect("action-clicked", show_popover_element)
     # show_popover_element is a function to show the popover for an element.
     return element
 
 
 def new_bin():
-    bin_ = Qu.Bin()
+    bin_ = Qtk.Bin()
     return bin_
 
 
 def new_paned(orientation=0):
-    paned = Qu.Paned(orientation=orientation)
+    paned = Qtk.Paned(orientation=orientation)
     return paned
 
 
@@ -174,7 +174,7 @@ def show_popover_element(ele, but, event):
 
 def remove_element(wid):
     global last_widget
-    Qu.remove_element(last_widget, last_widget.get_parent())
+    Qtk.remove_element(last_widget, last_widget.get_parent())
 
 
 def add_to_paned(wid, position):
@@ -183,21 +183,21 @@ def add_to_paned(wid, position):
     paned = new_paned()
     if position == 0:
         paned.set_orientation(0)
-        Qu.add_to_paned(last_widget, element, paned, 1)
+        Qtk.add_to_paned(last_widget, element, paned, 1)
     elif position == 1:
         paned.set_orientation(0)
-        Qu.add_to_paned(last_widget, element, paned, 2)
+        Qtk.add_to_paned(last_widget, element, paned, 2)
     elif position == 2:
         paned.set_orientation(1)
-        Qu.add_to_paned(last_widget, element, paned, 1)
+        Qtk.add_to_paned(last_widget, element, paned, 1)
     elif position == 3:
         paned.set_orientation(1)
-        Qu.add_to_paned(last_widget, element, paned, 2)
+        Qtk.add_to_paned(last_widget, element, paned, 2)
 
 
 def change_child_at_element(wid, prov, child_name):
     global last_widget
-    Qu.change_child_at_element(last_widget, prov, child_name)
+    Qtk.change_child_at_element(last_widget, prov, child_name)
 
 
 # Making a model-button for each provider.

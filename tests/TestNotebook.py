@@ -1,10 +1,10 @@
 import unittest
-import Quanta as Qu
-from Quanta import Gtk
+import Qtk
+from Qtk import Gtk
 
 
 def new_element():
-    element = Qu.Element()
+    element = Qtk.Element()
     return element
 
 
@@ -17,7 +17,7 @@ class TestNotebook(unittest.TestCase):
     def setUp(self):
 
         self.element = new_element()
-        self.notebook = Qu.Notebook()
+        self.notebook = Qtk.Notebook()
 
     def tearDown(self):
 

@@ -1,15 +1,15 @@
 Installation
 ============
 
-Simply put, to use Quanta, you need to install it. The following guide
-should be able help you in getting Quanta. For advanced users and more
-configuration, you are always welcome to grab the source code of Quanta
+Simply put, to use Qtk, you need to install it. The following guide
+should be able help you in getting Qtk. For advanced users and more
+configuration, you are always welcome to grab the source code of Qtk
 and do literally whatever you want.
 
 Requirements
 ------------
 
-Quanta is written in Python and requires Python. Apart from that you
+Qtk is written in Python and requires Python. Apart from that you
 need Gtk, nothing more. So we directly follow the guidelines required to
 use Gtk.
 
@@ -26,18 +26,18 @@ use Gtk.
    website <https://pypi.org/project/PyGObject/>`__) or follow the
    instructions from the `official website <https://pygobject.readthedocs.io/>`__.
 
-Getting Quanta
+Getting Qtk
 --------------
 
-After the requirements are satisfied, installing Quanta won’t be a
+After the requirements are satisfied, installing Qtk won’t be a
 trouble. The best way is to install it using PIP.
 
 .. code::
 
-   $ pip install quanta
+   $ pip install Qtk
 
 As already stated, for those not comfortable with PIP, you can always
-get the source code and do necessary things to get Quanta on your
+get the source code and do necessary things to get Qtk on your
 *PYTHONPATH*.
 
 New to Gtk ?

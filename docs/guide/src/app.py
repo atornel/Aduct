@@ -1,5 +1,5 @@
-import Quanta as Qu
-from Quanta import Gtk
+import Qtk
+from Qtk import Gtk
 
 from providers import A, B, C  # providers from provider.py
 
@@ -7,24 +7,24 @@ last_widget = None  # The last widget (element/notebook) where popover was shown
 
 
 def new_element():
-    element = Qu.Element(margin=5)
+    element = Qtk.Element(margin=5)
     element.connect("action-clicked", show_popover_element)
     # show_popover_element is a function to show the popover for an element.
     return element
 
 
 def new_bin():
-    bin_ = Qu.Bin()
+    bin_ = Qtk.Bin()
     return bin_
 
 
 def new_paned(orientation=0):
-    paned = Qu.Paned(orientation=orientation)
+    paned = Qtk.Paned(orientation=orientation)
     return paned
 
 
 def new_notebook():
-    notebook = Qu.Notebook()
+    notebook = Qtk.Notebook()
     icon = Gtk.Image.new_from_icon_name("list-add", 2)
     notebook.set_action_button(icon, 1)
     notebook.connect("action-clicked", show_popover_notebook)
@@ -69,7 +69,7 @@ def show_popover_notebook(nb, but, event):
 
 def remove_element(wid):
     global last_widget
-    Qu.remove_element(last_widget, last_widget.get_parent())
+    Qtk.remove_element(last_widget, last_widget.get_parent())
 
 
 def add_to_paned(wid, position):
@@ -78,48 +78,48 @@ def add_to_paned(wid, position):
     paned = new_paned()
     if position == 0:
         paned.set_orientation(0)
-        Qu.add_to_paned(last_widget, element, paned, 1)
+        Qtk.add_to_paned(last_widget, element, paned, 1)
     elif position == 1:
         paned.set_orientation(0)
-        Qu.add_to_paned(last_widget, element, paned, 2)
+        Qtk.add_to_paned(last_widget, element, paned, 2)
     elif position == 2:
         paned.set_orientation(1)
-        Qu.add_to_paned(last_widget, element, paned, 1)
+        Qtk.add_to_paned(last_widget, element, paned, 1)
     elif position == 3:
         paned.set_orientation(1)
-        Qu.add_to_paned(last_widget, element, paned, 2)
+        Qtk.add_to_paned(last_widget, element, paned, 2)
 
 
 def add_to_notebook(wid, position):
     global last_widget
     notebook = new_notebook()
     notebook.set_tab_pos(position)
-    Qu.add_to_notebook(last_widget, notebook)
+    Qtk.add_to_notebook(last_widget, notebook)
 
 
 def change_child_at_element(wid, prov, child_name):
     global last_widget
     if last_widget.type == "element":
-        Qu.change_child_at_element(last_widget, prov, child_name)
+        Qtk.change_child_at_element(last_widget, prov, child_name)
     elif last_widget.type == "notebook":
         element = new_element()
-        Qu.change_child_at_element(element, prov, child_name)
-        Qu.add_to_notebook(element, last_widget)
+        Qtk.change_child_at_element(element, prov, child_name)
+        Qtk.add_to_notebook(element, last_widget)
         element.show_all()
 
 
 def save_interface(wid):
     from json import dump
 
-    with open("quanta.ui", "w") as fp:
-        ui_dict = Qu.get_interface(top_level)
+    with open("qtk.ui", "w") as fp:
+        ui_dict = Qtk.get_interface(top_level)
         dump(ui_dict, fp, indent=2)
 
 
 def load_interface(wid):
     from json import load
 
-    with open("quanta.ui") as fp:
+    with open("qtk.ui") as fp:
         ui_dict = load(fp)
         creator_maps = {
             "type": {
@@ -132,7 +132,7 @@ def load_interface(wid):
         init_maps = {
             "provider": {"Provider A": A, "Provider B": B, "Provider C": C, None: None}
         }
-        Qu.set_interface(ui_dict, top_level, creator_maps, init_maps)
+        Qtk.set_interface(ui_dict, top_level, creator_maps, init_maps)
 
 
 provs = [
