@@ -327,7 +327,6 @@ lines of *app.py* is given below. (The complete file is also available for
 :download:`download <src/app.py>`.)
 
 .. code:: python
-   :number-lines:
 
    import Aduct
    from Aduct import Gtk
@@ -371,8 +370,6 @@ correspondingly set the value of ``last_widget`` to that widget. With
 that, let’s append the next lines of code.
 
 .. code:: python
-   :number-lines:
-
 
    def show_popover_element(ele, but, event):
 
@@ -419,8 +416,6 @@ later why we are changing sensitivities of model buttons.
 Now let us make some more functions that can modify the interface.
 
 .. code:: python
-   :number-lines:
-
 
    def remove_element(wid):
        global last_widget
@@ -456,8 +451,6 @@ used from Aduct. Next we add more functions for changing child at an
 element, saving and loading interfaces.
 
 .. code:: python
-   :number-lines:
-
 
    def change_child_at_element(wid, prov, child_name):
        global last_widget
@@ -553,8 +546,6 @@ The finishing parts of our application is just connecting everything,
 creating a new window and adding a top level view.
 
 .. code:: python
-   :number-lines:
-
 
    provs = [
        (A, Gtk.ModelButton(text="Entry"), "Entry"), # Making a model-button for each provider.
