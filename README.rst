@@ -7,7 +7,7 @@ person to improve and end user to use.
 
 Version
 -------
-The latest version of Aduct is 1.0
+The latest version of Aduct is 1.0.2
 
 License
 -------
