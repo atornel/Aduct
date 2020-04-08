@@ -54,7 +54,7 @@ main_grid = Gtk.Grid()
 main_grid.attach(button_grid, 0, 0, 1, 1)
 main_grid.attach(paned2, 0, 1, 1, 1)
 
-win = Gtk.Window(margin=2, title="Movk Image Tool")
+win = Gtk.Window(margin=2, title="Movk Image Tool", default_height=620, default_width=1220)
 win.add(main_grid)
 win.connect("destroy", Gtk.main_quit)
 win.show_all()

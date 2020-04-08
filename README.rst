@@ -5,6 +5,18 @@ following principles of Aduct with Gtk, one can make powerful
 applications that are easy for a developer to develop, third-party
 person to improve and end user to use.
 
+**What You Made**
+
+|what_you_made|
+
+**What Users Want**
+
+|what_users_want|
+
+**What Aduct Does**
+
+|what_aduct_does|
+
 Version
 -------
 The latest version of Aduct is 1.0.2
@@ -35,3 +47,9 @@ Contributing is easy! A few way of doing so are given below:
  2. Request new features.
  3. Improve documentation, add new articles, write better examples.
  4. Spend time with the source code and make it perfect.
+
+.. |what_you_made| image:: docs/demo_reel/what_you_made.gif
+
+.. |what_user_wants| image:: docs/demo_reel/what_user_wants.gif
+
+.. |what_aduct_does| image:: docs/demo_reel/what_aduct_does.gif
