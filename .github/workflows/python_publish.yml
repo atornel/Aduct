@@ -3,29 +3,28 @@
 
 name: Upload Python Package
 
-on:
-  release:
-    types: [created]
+on: push
 
 jobs:
-  deploy:
-
+  build-n-publish:
+    name: Build and publish Aduct to PyPI
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
+    - uses: actions/checkout@master
+
+    - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
-        python-version: '3.x'
+        python-version: 3.7
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install setuptools wheel twine
+    
     - name: Build and publish
-      env:
-        TWINE_USERNAME: '__token__'
-        TWINE_PASSWORD: ${{ secrets.__ADUCT_TOKEN__ }}
-      run: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+      if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: __token__
+        password: ${{ secrets.__ADUCT_TOKEN__ }}
