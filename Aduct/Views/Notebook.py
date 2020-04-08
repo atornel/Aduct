@@ -32,7 +32,7 @@ class Notebook(Gtk.Notebook):
     def __init__(self, **kwargs):
 
         """
-        Makes a notebook based on given properties.
+        Makes a notebook based on given properties. Its default name is *aduct-notebook*.
 
         Arguments
         ---------

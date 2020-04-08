@@ -8,8 +8,8 @@ following sections describe them in an elaborate manner.
 
 |overview|
 
-Provider
---------
+Aduct.Provider
+--------------
 
 Provider is an object that can produce widgets. They can be taken as a
 factory that can assemble and give you widgets when required. The
@@ -26,8 +26,8 @@ dissembling a widget is called *clearing*. A widget produced by a
 provider is known as child. In fact, the word *widget* is rarely used
 and instead the term *child* is used.
 
-Element
--------
+Aduct.Element
+-------------
 
 |sample_element|
 
@@ -42,29 +42,29 @@ you want to add multiple widgets, put them inside a container like grid
 or box. Elements can not be directly attached to an interface, they need
 a container called views.
 
-View
-----
+Aduct.View
+----------
 
 View is a container of widgets. Aduct comes with three basic views,
 that are enough for most of the use cases. New views can also be made
 easily if they don’t satisfy your need. The three views are :
 
-Bin
-~~~
+Aduct.Bin
+~~~~~~~~~
 
 A bin can contain only one child. The child can either be another view
 or element.
 
-Paned
-~~~~~
+Aduct.Paned
+~~~~~~~~~~~
 
 A paned is a container that can hold two children, either in vertical or
 horizontal direction. Similar to a bin, paned can hold either a view or
 an element. Paned contains a movable handle between its children, which
 can change the *space* allocated to each child.
 
-Notebook
-~~~~~~~~
+Aduct.Notebook
+~~~~~~~~~~~~~~
 
 A notebook can contain an arbitrary number of children, but they all
 should be elements. In a notebook, only one child is visible at a time

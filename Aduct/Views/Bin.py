@@ -30,7 +30,7 @@ class Bin(Gtk.Bin):
     def __init__(self, **kwargs):
 
         """
-        Makes a bin based on given properties.
+        Makes a bin based on given properties. Its default name is *aduct-bin*.
 
         Arguments
         ---------

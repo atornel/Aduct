@@ -110,7 +110,6 @@ The source code for our providers are as follows. If you are lazy to copy-paste,
 :download:`download <src/providers.py>` it.
 
 .. code:: python
-   :number-lines:
 
    import Aduct
    from Aduct import Gtk

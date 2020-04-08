@@ -38,6 +38,7 @@ extensions = [
 ]
 autoclass_content = "init"
 autodoc_mock_imports = ["gi"]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 

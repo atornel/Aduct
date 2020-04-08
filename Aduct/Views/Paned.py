@@ -30,7 +30,7 @@ class Paned(Gtk.Paned):
     def __init__(self, **kwargs):
 
         """
-        Makes a paned based on given properties.
+        Makes a paned based on given properties. Its default name is *aduct-paned*
 
         Arguments
         ---------

@@ -31,6 +31,8 @@ The format of ``child_dict`` is as follows
    }
 
 Here only ``header_child`` key is optional.
+
+
 """
 import gi
 
@@ -50,7 +52,7 @@ class Element(Gtk.Bin):
     def __init__(self, child_dict=None, use_action_button=True, pack_type=0, **kwargs):
 
         """
-        Makes an element based on given properties.
+        Makes an element based on given properties. The default name is *aduct-element*.
 
         Arguments
         ---------
@@ -69,13 +71,16 @@ class Element(Gtk.Bin):
         Attributes
         ----------
         action_button : :class:`Gtk.Button`
-            Action button that is used to handle interactions with user.
+            Action button that is used to handle interactions with user. Its default name is
+            *aduct-element-action_button*.
         child_name : :class:`str`
             The name of child held by :obj:`self`.
         header_grid : :class:`Gtk.Grid`
-            The grid that is used to hold action button and header child.
+            The grid that is used to hold action button and header child. Its default name is
+            *aduct-element-header_grid*.
         main_grid : :class:`Gtk.Grid`
-            The grid that holds every widget of :obj:`self`.
+            The grid that holds every widget of :obj:`self`. Its default name is
+            *aduct-element-main_grid*
         pack_type : :class:`Gtk.PackType`
             The position of action button in :obj:`self`.
         provider : :mod:`.Provider`
