@@ -34,7 +34,7 @@ using PIP:
 
 .. code:: bash
 
-   $ pip install Aduct
+   $ pip install aduct
 
 Getting Started
 ---------------
@@ -50,6 +50,6 @@ Contributing is easy! A few way of doing so are given below:
 
 .. |what_you_made| image:: docs/demo_reel/what_you_made.gif
 
-.. |what_user_wants| image:: docs/demo_reel/what_user_wants.gif
+.. |what_users_want| image:: docs/demo_reel/what_users_want.gif
 
 .. |what_aduct_does| image:: docs/demo_reel/what_aduct_does.gif
