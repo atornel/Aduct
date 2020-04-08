@@ -9,9 +9,9 @@ person to improve and end user to use.
 
 |what_you_made|
 
-**What Users Want**
+**What User Wants**
 
-|what_users_want|
+|what_user_wants|
 
 **What Aduct Does**
 
