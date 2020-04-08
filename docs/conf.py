@@ -12,18 +12,6 @@
 #
 import os
 import sys
-from unittest.mock import MagicMock
-
-sys.path.insert(0, os.path.abspath("../"))
-
-
-class Mock(MagicMock):
-    @classmethod
-    def __getattr__(cls, name):
-            return Mock()
-
-MOCK_MODULES = ['gi', 'gi.repository', 'Gdk', 'Gtk']
-sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
 
 # -- Project information -----------------------------------------------------
 
@@ -47,6 +35,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
 ]
 autoclass_content = "init"
+autodoc_mock_imports = ["gi"]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
