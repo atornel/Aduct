@@ -24,6 +24,6 @@ setuptools.setup(
         "Topic :: Software Development",
     ],
     keywords="gui gtk ui",
-    install_requires=["pygobject"],
+    install_requires=["pygobject",],
     python_requires="~=3.3",
 )
