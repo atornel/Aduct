@@ -18,7 +18,7 @@ jobs:
         pip install setuptools wheel twine
     - name: Build Aduct
       run: |
-        python setup.py bdist_wheel
+        python setup.py bdist_wheel --universal
     - name: Publish to PyPI
       if: startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
