@@ -26,7 +26,7 @@ using PIP:
 
 Getting Started
 ---------------
-Learn to make the best use of Aduct with the docs.
+Learn to make the best use of Aduct with the `docs <https://aduct.readthedocs.io/>`__.
 
 Contribution
 ------------
