@@ -23,4 +23,4 @@ jobs:
       if: startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
       with:
-        password: ${{ secrets.__ADUCT_TOKEN }}
+        password: ${{ secrets.__ADUCT_TOKEN__ }}
