@@ -17,10 +17,6 @@ person to improve and end user to use.
 
 |what_aduct_does|
 
-Version
--------
-The latest version of Aduct is 1.1.0
-
 License
 -------
 Aduct is published under `GNU Lesser General Public License
