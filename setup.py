@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="Aduct",
-    version="1.1.0",
+    version="1.1.0a",
     author="J Arun Mani; Atornel",
     author_email="j.arunmani@protonmail.com",
     description="Aduct lets you make flexible interfaces that can be easily\
