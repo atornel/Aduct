@@ -51,21 +51,15 @@ class TestNotebook(unittest.TestCase):
         label = self.notebook.get_tab(self.element)
         self.assertEqual(label.get_text(), "No child")
 
-    def test_get_action_button_1(self):
+    def test_get_set_action_button(self):
 
+        button = Gtk.Button()
         icon = Gtk.Image.new_from_icon_name("terminal", 2)
-        self.notebook.set_action_button(icon, 0)
+        button.add(icon)
+
+        self.notebook.set_action_button(button, 0)
         but = self.notebook.get_action_button(0)
-        n_icon = but.get_child()
-        self.assertEqual(icon, n_icon)
-
-    def test_get_action_button_2(self):
-
-        icon = Gtk.Image.new_from_icon_name("terminal", 2)
-        self.notebook.set_action_button(icon, 1)
-        but = self.notebook.get_action_button(1)
-        n_icon = but.get_child()
-        self.assertEqual(icon, n_icon)
+        self.assertEqual(button, but)
 
     def test_get_tab_1(self):
 
@@ -122,22 +116,6 @@ class TestNotebook(unittest.TestCase):
         wid = Gtk.Grid()
         self.notebook.add_child(self.element)
         self.assertRaises(TypeError, self.notebook.replace_child, self.element, wid)
-
-    def test_set_action_button_1(self):
-
-        icon = Gtk.Image.new_from_icon_name("terminal", 2)
-        self.notebook.set_action_button(icon, 1)
-        but = self.notebook.get_action_widget(1)
-        n_icon = but.get_child()
-        self.assertEqual(icon, n_icon)
-
-    def test_set_action_button_1(self):
-
-        icon = Gtk.Image.new_from_icon_name("terminal", 2)
-        self.notebook.set_action_button(icon, 1)
-        but = self.notebook.get_action_widget(1)
-        n_icon = but.get_child()
-        self.assertEqual(icon, n_icon)
 
     def test_set_from_props(self):
 

@@ -32,17 +32,21 @@ class Notebook(Gtk.Notebook):
     def __init__(self, **kwargs):
 
         """
-        Makes a notebook based on given properties. Its default name is *aduct-notebook*.
+        Makes a notebook based on given properties. Its CSS name is *aduct-notebook*.
 
         Arguments
         ---------
         **kwargs
             The values to be passed to :class:`Gtk.Notebook` from which :mod:`.Notebook` is made.
+
+        Signals
+            action-clicked
+                Emitted with an integer when action button of :obj:`self` is
+                clicked. The integer is 1, 2, 3 for LMB, MMB, RMB respectively.
         """
 
         super().__init__(**kwargs)
-        if not kwargs.get("name", False):
-            self.set_name("aduct-notebook")
+        self.set_css_name("aduct-notebook")
         self.type = "notebook"
 
     def __handle_event__(self, button, event):
@@ -257,21 +261,20 @@ class Notebook(Gtk.Notebook):
         else:
             raise TypeError("Aduct.Notebook can only hold a child of type Aduct.Element")
 
-    def set_action_button(self, icon, pack_type):
+    def set_action_button(self, action_button, pack_type):
 
         """
-        Sets the action button.
+        Sets the action button to notebook.
 
         Arguments
         ---------
-        icon : :class:`Gtk.Image`
-            The icon to be placed in action button.
+        action_button : :class:`Gtk.Button`
+            The button to be added to notebook. It need not be a :class:`Gtk.Button` actually,
+            it could be any widget that can handle `button-press-event`.
         pack_type : :class:`Gtk.PackType`
             The position of the action button.
         """
 
-        action_button = Gtk.Button()
-        action_button.add(icon)
         action_button.connect("button-press-event", self.__handle_event__)
         self.set_action_widget(action_button, pack_type)
         action_button.show_all()

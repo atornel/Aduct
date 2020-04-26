@@ -39,8 +39,7 @@ class Bin(Gtk.Bin):
         """
 
         super().__init__(**kwargs)
-        if not kwargs.get("name", False):
-            self.set_name("aduct-bin")
+        self.set_name("aduct-bin")
         self.type = "bin"
 
     def add_child(self, child):

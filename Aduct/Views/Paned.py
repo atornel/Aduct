@@ -40,8 +40,7 @@ class Paned(Gtk.Paned):
         """
 
         super().__init__(**kwargs)
-        if not kwargs.get("name", False):
-            self.set_name("aduct-paned")
+        self.set_name("aduct-paned")
         self.type = "paned"
 
     def add_child(self, child, position=0):
