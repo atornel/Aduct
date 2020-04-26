@@ -37,10 +37,12 @@ Here only ``header_child`` key is optional.
 import gi
 
 gi.require_versions({"Gtk": "3.0"})
-from gi.repository import Gtk
+from gi.repository import GObject, Gtk
+
+from .Views.View import View
 
 
-class Element(Gtk.Bin):
+class Element(View, Gtk.Bin):
 
     __gsignals__ = {
         "action-clicked": (2, None, (Gtk.Button, int)),
@@ -48,6 +50,8 @@ class Element(Gtk.Bin):
         "child-cleared": (2, None, ()),
         "child-removed": (2, None, ()),
     }
+
+    type = GObject.Property(type=str, default="element", flags=GObject.ParamFlags.READABLE)
 
     def __init__(self, child_dict=None, use_action_button=True, pack_type=0, **kwargs):
 
@@ -71,15 +75,15 @@ class Element(Gtk.Bin):
         Attributes
         ----------
         action_button : :class:`Gtk.Button`
-            Action button that is used to handle interactions with user. Its CSS name is
+            Action button that is used to handle interactions with user. Its default name is
             *aduct-element-action_button*.
         child_name : :class:`str`
             The name of child held by :obj:`self`.
         header_grid : :class:`Gtk.Grid`
-            The grid that is used to hold action button and header child. Its CSS name is
+            The grid that is used to hold action button and header child. Its default name is
             *aduct-element-header_grid*.
         main_grid : :class:`Gtk.Grid`
-            The grid that holds every widget of :obj:`self`. Its CSS name is
+            The grid that holds every widget of :obj:`self`. Its default name is
             *aduct-element-main_grid*
         pack_type : :class:`Gtk.PackType`
             The position of action button in :obj:`self`.
@@ -106,14 +110,10 @@ class Element(Gtk.Bin):
         Gtk.Bin.__init__(self, **kwargs)
         self.set_css_name("aduct-element")
 
-        self.type = "element"
-        self.action_button = Gtk.Button()
-        self.main_grid = Gtk.Grid()
-        self.header_grid = Gtk.Grid()
-
-        self.action_button.set_css_name("aduct-element-action_button")
-        self.main_grid.set_css_name("aduct-element-main_grid")
-        self.header_grid.set_css_name("aduct-element-header_grid")
+        self.action_button = Gtk.Button(name="aduct-element-action_button",
+                                        relief=Gtk.ReliefStyle.NORMAL)
+        self.main_grid = Gtk.Grid(name="aduct-element-main_grid")
+        self.header_grid = Gtk.Grid(name="aduct-element-header_grid")
 
         self.pack_type = pack_type
 
@@ -244,7 +244,7 @@ class Element(Gtk.Bin):
             child_props = self.provider.get_child_props(
                 self.child_name, self.get_child(), self.get_header_child()
             )
-            props["provider"] = self.provider.name
+            props["provider"] = self.provider.get_name()
             props["child"] = child_props
         else:
             props["provider"] = None
@@ -263,6 +263,19 @@ class Element(Gtk.Bin):
         """
 
         return self.provider
+
+    def get_type(self):
+
+        """
+        Gets the type of `self`.
+
+        Returns
+        -------
+        :class:`str`
+            The name of provider.
+        """
+
+        return self.get_property("type")
 
     def remove_child(self):
 
@@ -335,7 +348,7 @@ class Element(Gtk.Bin):
         if header_child:
             self.set_header_child(header_child)
 
-        self.main_grid.show_all()
+        self.show_all()
         self.emit("child-added")
 
     def set_from_props(self, props):

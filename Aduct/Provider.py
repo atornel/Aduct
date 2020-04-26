@@ -19,14 +19,11 @@
 Provider acts as a producer of widgets that are placed as child in :mod:`.Element`.
 """
 
-import gi
-
-gi.require_version("Gtk", "3.0")
 from gi.repository import GObject
 
 
 class Provider(GObject.Object):
-    def __init__(self, name):
+    def __init__(self, *args, **kwargs):
 
         """
         This a template that gives an idea of methods a :mod:`.Provider` must have.
@@ -34,9 +31,7 @@ class Provider(GObject.Object):
         a :mod:`.Provider`.
         """
 
-        super().__init__()
-
-        self.name = name
+        GObject.Object.__init__(self, *args, **kwargs)
 
     def clear_child(self, child_dict):
 
@@ -108,3 +103,16 @@ class Provider(GObject.Object):
         """
 
         pass
+
+    def get_name(self):
+
+        """
+        Gets the name of the provider.
+
+        Returns
+        -------
+        :class:`str`
+            The name of provider.
+        """
+
+        return self.get_property("name")

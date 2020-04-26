@@ -25,8 +25,10 @@ def new_paned(orientation=0):
 
 def new_notebook():
     notebook = Aduct.Notebook()
+    button = Gtk.Button()
     icon = Gtk.Image.new_from_icon_name("list-add", 2)
-    notebook.set_action_button(icon, 1)
+    button.add(icon)
+    notebook.set_action_button(button, 1)
     notebook.connect("action-clicked", show_popover_notebook)
     # show_popover_notebook is a function like show_popover_element.
     return notebook
@@ -99,9 +101,9 @@ def add_to_notebook(wid, position):
 
 def change_child_at_element(wid, prov, child_name):
     global last_widget
-    if last_widget.type == "element":
+    if last_widget.get_type() == "element":
         Aduct.change_child_at_element(last_widget, prov, child_name)
-    elif last_widget.type == "notebook":
+    elif last_widget.get_type() == "notebook":
         element = new_element()
         Aduct.change_child_at_element(element, prov, child_name)
         Aduct.add_to_notebook(element, last_widget)
@@ -111,7 +113,7 @@ def change_child_at_element(wid, prov, child_name):
 def save_interface(wid):
     from json import dump
 
-    with open("qtk.ui", "w") as fp:
+    with open("aduct.ui", "w") as fp:
         ui_dict = Aduct.get_interface(top_level)
         dump(ui_dict, fp, indent=2)
 
@@ -119,7 +121,7 @@ def save_interface(wid):
 def load_interface(wid):
     from json import load
 
-    with open("qtk.ui") as fp:
+    with open("aduct.ui") as fp:
         ui_dict = load(fp)
         creator_maps = {
             "type": {

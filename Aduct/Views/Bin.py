@@ -23,14 +23,19 @@ Bin is a view that can hold only one child. The child can be either an :mod:`.Vi
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import GObject, Gtk
+
+from .View import View
 
 
-class Bin(Gtk.Bin):
+class Bin(View, Gtk.Bin):
+
+    type = GObject.Property(type=str, default="bin", flags=GObject.ParamFlags.READABLE)
+
     def __init__(self, **kwargs):
 
         """
-        Makes a bin based on given properties. Its default name is *aduct-bin*.
+        Makes a bin based on given properties. Its CSS name is *aduct-bin*.
 
         Arguments
         ---------
@@ -38,9 +43,8 @@ class Bin(Gtk.Bin):
             The keyword arguments to be passed to :class:`Gtk.Bin` from which :mod:`.Bin` is made.
         """
 
-        super().__init__(**kwargs)
-        self.set_name("aduct-bin")
-        self.type = "bin"
+        Gtk.Bin.__init__(self, **kwargs)
+        self.set_css_name("aduct-bin")
 
     def add_child(self, child):
 

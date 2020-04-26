@@ -22,12 +22,16 @@ restriction, there is no limitation in number of children it can hold.
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import GObject, Gtk
+
+from .View import View
 
 
-class Notebook(Gtk.Notebook):
+class Notebook(View, Gtk.Notebook):
 
     __gsignals__ = {"action-clicked": (2, None, (Gtk.Button, int))}
+
+    type = GObject.Property(type=str, default="notebook", flags=GObject.ParamFlags.READABLE)
 
     def __init__(self, **kwargs):
 
@@ -45,9 +49,8 @@ class Notebook(Gtk.Notebook):
                 clicked. The integer is 1, 2, 3 for LMB, MMB, RMB respectively.
         """
 
-        super().__init__(**kwargs)
+        Gtk.Notebook.__init__(self, **kwargs)
         self.set_css_name("aduct-notebook")
-        self.type = "notebook"
 
     def __handle_event__(self, button, event):
 

@@ -23,10 +23,15 @@ Paned is a view that can hold two children. The two children can either be :mod:
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import GObject, Gtk
+
+from .View import View
 
 
-class Paned(Gtk.Paned):
+class Paned(View, Gtk.Paned):
+
+    type = GObject.Property(type=str, default="paned", flags=GObject.ParamFlags.READABLE)
+
     def __init__(self, **kwargs):
 
         """
@@ -39,9 +44,8 @@ class Paned(Gtk.Paned):
             made.
         """
 
-        super().__init__(**kwargs)
+        Gtk.Paned.__init__(self, **kwargs)
         self.set_name("aduct-paned")
-        self.type = "paned"
 
     def add_child(self, child, position=0):
 

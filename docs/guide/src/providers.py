@@ -1,11 +1,17 @@
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, GObject
+
 import Aduct
-from Aduct import Gtk
 
 
 class Provider_A(Aduct.Provider):
-    def __init__(self, name):
 
-        super().__init__(name)
+    name = GObject.Property(type=str, default="Provider A", flags=GObject.ParamFlags.READABLE)
+
+    def __init__(self):
+
+        Aduct.Provider.__init__(self)
         self.text = ""
         self.toggles = []
         self.entries = []
@@ -75,9 +81,12 @@ class Provider_A(Aduct.Provider):
 
 
 class Provider_B(Aduct.Provider):
-    def __init__(self, name):
 
-        super().__init__(name)
+    name = GObject.Property(type=str, default="Provider B", flags=GObject.ParamFlags.READABLE)
+
+    def __init__(self):
+
+        Aduct.Provider.__init__(self)
         self.file_choosers = []
         self.buffer = Gtk.TextBuffer()
         self.path = None
@@ -144,9 +153,12 @@ class Provider_B(Aduct.Provider):
 
 
 class Provider_C(Aduct.Provider):
-    def __init__(self, name):
 
-        super().__init__(name)
+    name = GObject.Property(type=str, default="Provider C", flags=GObject.ParamFlags.READABLE)
+
+    def __init__(self):
+
+        Aduct.Provider.__init__(self)
 
     def clear_child(self, child_props):
 
@@ -175,6 +187,6 @@ class Provider_C(Aduct.Provider):
         return self.get_a_child(props["child_name"])
 
 
-A = Provider_A("Provider A")
-B = Provider_B("Provider B")
-C = Provider_C("Provider C")
+A = Provider_A()
+B = Provider_B()
+C = Provider_C()

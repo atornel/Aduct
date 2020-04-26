@@ -1,8 +1,6 @@
 Welcome to Aduct's documentation!
 =================================
 
-|test-gif|
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -20,5 +18,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-.. |test-gif| image:: the-eye.gif

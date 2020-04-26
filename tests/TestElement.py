@@ -1,13 +1,18 @@
 import unittest
 
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk, GObject
+
 import Aduct
-from Aduct import Gtk
 
 
 class TestProvider(Aduct.Provider):
-    def __init__(self, name, *args, **kwargs):
-        super().__init__(name, *args, **kwargs)
-        self.name = name
+
+    name = GObject.Property(type=str, default="Test Provider", flags=GObject.ParamFlags.READABLE)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def clear_child(self, child_dict):
 
@@ -49,7 +54,7 @@ class TestProvider(Aduct.Provider):
         return child_dict
 
 
-prov = TestProvider("Test Provider")
+prov = TestProvider()
 
 
 class TestElement(unittest.TestCase):

@@ -25,7 +25,7 @@ class View:
     def __init__(self, **kwargs):
 
         """
-        This a template, that gives an idea of methods a :mod:`.View` must have.
+        This an abstract class, that gives an idea of methods a :mod:`.View` must have.
         Unless otherwise stated, all the description of methods are generalised expected behavior of
         :mod:`.View`. Depending upon the nature of view, the type of child it can hold also varies.
         """
@@ -70,6 +70,19 @@ class View:
         """
 
         pass
+
+    def get_type(self):
+
+        """
+        Gets the interface properties.
+
+        Returns
+        -------
+        :class:`dict`
+            A dictionary with interface properties.
+        """
+
+        return self.get_property("type")
 
     def remove_child(self, child):
 

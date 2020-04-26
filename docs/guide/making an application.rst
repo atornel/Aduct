@@ -109,188 +109,7 @@ is of the following format.
 The source code for our providers are as follows. If you are lazy to copy-paste,
 :download:`download <src/providers.py>` it.
 
-.. code:: python
-
-   import Aduct
-   from Aduct import Gtk
-
-
-   class Provider_A(Aduct.Provider):
-       def __init__(self, name):
-
-           super().__init__(name)
-           self.text = ""
-           self.toggles = []
-           self.entries = []
-           self.editable = False
-
-       def change_text(self, entry):
-
-           self.text = entry.get_text()
-           for entry in self.entries:
-               entry.set_text(self.text)
-
-       def clear_child(self, child_props):
-
-           self.entries.remove(child_props["child"])
-           self.toggles.remove(child_props["header_child"])
-           del child_props
-
-       def get_a_child(self, child_name):
-
-           entry = Gtk.Entry(margin=5, text=self.text, editable=self.editable)
-           entry.connect("changed", self.change_text)
-
-           icon = Gtk.Image.new_from_icon_name("terminal", 2)
-           # Choose whatever icon you want
-
-           switch = Gtk.ToggleButton(
-               label="Allow Edit", hexpand=True, halign=2, active=self.editable
-           )
-           switch.connect("toggled", self.toggle_editable)
-
-           self.entries.append(entry)
-           self.toggles.append(switch)
-
-           child_props = {
-               "child_name": "Entry",
-               "child": entry,
-               "icon": icon,
-               "header_child": switch,
-           }
-           return child_props
-
-       def get_child_props(self, child_name, child, header_child):
-
-           props = {"child_name": child_name, "text": self.text, "editable": self.editable}
-           return props
-
-       def get_child_from_props(self, props):
-
-           self.editable = props["editable"]
-           self.text = props["text"]
-
-           for toggle in self.toggles:
-               toggle.set_active(self.editable)
-           for entry in self.entries:
-               entry.set_editable(self.editable)
-               entry.set_text(self.text)
-
-           return self.get_a_child(props["child_name"])
-
-       def toggle_editable(self, toggle):
-
-           self.editable = toggle.get_active()
-           for toggle in self.toggles:
-               toggle.set_active(self.editable)
-           for entry in self.entries:
-               entry.set_editable(self.editable)
-
-
-   class Provider_B(Aduct.Provider):
-       def __init__(self, name):
-
-           super().__init__(name)
-           self.file_choosers = []
-           self.buffer = Gtk.TextBuffer()
-           self.path = None
-
-       def clear_child(self, child_props):
-
-           self.file_choosers.remove(child_props["header_child"])
-           del child_props
-
-       def change_text_at_buffer(self, fp_but):
-
-           path = fp_but.get_filename()
-           self.path = path
-           fp = open(path)
-           text = fp.read()
-           self.buffer.set_text(text)
-           fp.close()
-
-           for fp_chooser in self.file_choosers:
-               fp_chooser.set_filename(self.path)
-
-       def get_a_child(self, child_name):
-
-           textview = Gtk.TextView(margin=5, buffer=self.buffer)
-           scrolled = Gtk.ScrolledWindow(expand=True)
-           scrolled.add(textview)
-
-           icon = Gtk.Image.new_from_icon_name("folder", 2)
-
-           fp_but = Gtk.FileChooserButton(title="Choose file", hexpand=True, halign=2)
-
-           if self.path:
-               fp_but.set_filename(self.path)
-
-           fp_but.connect("file-set", self.change_text_at_buffer)
-           self.file_choosers.append(fp_but)
-
-           child_props = {
-               "child_name": "TextView",
-               "child": scrolled,
-               "icon": icon,
-               "header_child": fp_but,
-           }
-           return child_props
-
-       def get_child_props(self, child_name, child, header_child):
-
-           props = {"child_name": child_name, "path": self.path}
-           return props
-
-       def get_child_from_props(self, props):
-
-           self.path = props["path"]
-           if self.path:
-               fp = open(self.path)
-               text = fp.read()
-               self.buffer.set_text(text)
-               fp.close()
-
-               for fp_chooser in self.file_choosers:
-                   fp_chooser.set_filename(self.path)
-
-           return self.get_a_child(props["child_name"])
-
-
-   class Provider_C(Aduct.Provider):
-       def __init__(self, name):
-
-           super().__init__(name)
-
-       def clear_child(self, child_props):
-
-           del child_props
-
-       def get_a_child(self, child_name):
-
-           label = Gtk.Label(margin=5, label="Hello World")
-
-           icon = Gtk.Image.new_from_icon_name("glade", 2)
-           child_props = {
-               "child_name": "Label",
-               "child": label,
-               "icon": icon,
-               "header_child": None,
-           }
-           return child_props
-
-       def get_child_props(self, child_name, child, header_child):
-
-           props = {"child_name": child_name}
-           return props
-
-       def get_child_from_props(self, props):
-
-           return self.get_a_child(props["child_name"])
-
-
-   A = Provider_A("Provider A")
-   B = Provider_B("Provider B")
-   C = Provider_C("Provider C")
+.. literalinclude:: src/providers.py
 
 We prefer keeping the above code in a separate file (could be named
 *providers.py*), because in practical situations (while making real
@@ -326,40 +145,8 @@ connecting signals and automate other repeating tasks. The first few
 lines of *app.py* is given below. (The complete file is also available for
 :download:`download <src/app.py>`.)
 
-.. code:: python
-
-   import Aduct
-   from Aduct import Gtk
-
-   from providers import A, B, C # providers from provider.py
-
-   last_widget = None # The last widget (element/notebook) where popover was shown.
-
-
-   def new_element():
-       element = Aduct.Element(margin=5)
-       element.connect("action-clicked", show_popover_element)
-       # show_popover_element is a function to show the popover for an element.
-       return element
-
-
-   def new_bin():
-       bin_ = Aduct.Bin()
-       return bin_
-
-
-   def new_paned(orientation=0):
-       paned = Aduct.Paned(orientation=orientation)
-       return paned
-
-
-   def new_notebook():
-       notebook = Aduct.Notebook()
-       icon = Gtk.Image.new_from_icon_name("list-add", 2)
-       notebook.set_action_button(icon, 1)
-       notebook.connect("action-clicked", show_popover_notebook)
-       # show_popover_notebook is a function like show_popover_element.
-       return notebook
+.. literalinclude:: src/app.py
+   :lines: 1-34
 
 The idea of the above code is simple. When action button of an element
 or notebook is clicked, it emits a signal and popover is shown in
@@ -369,41 +156,8 @@ were clicked. To tackle this, when an action button is clicked, we
 correspondingly set the value of ``last_widget`` to that widget. With
 that, let’s append the next lines of code.
 
-.. code:: python
-
-   def show_popover_element(ele, but, event):
-
-       global last_widget
-       last_widget = ele
-
-       if event == 1: # 1 -> left-click of mouse
-           prov_popover.set_relative_to(but)
-           prov_popover.popup()
-
-       elif event == 3: # 3 -> right-click of mouse
-           for modbs in tweaks.values():
-               for modb in modbs:
-                   modb.set_sensitive(True)
-           tweak_popover.set_relative_to(but)
-           tweak_popover.popup()
-
-
-   def show_popover_notebook(nb, but, event):
-
-       global last_widget
-       last_widget = nb
-
-       if event == 1:
-           prov_popover.set_relative_to(but)
-           prov_popover.popup()
-
-       elif event == 3:
-           for modb in tweaks["Element"]:
-               modb.set_sensitive(False)
-           for modb in tweaks["Notebook"]:
-               modb.set_sensitive(False)
-           tweak_popover.set_relative_to(but)
-           tweak_popover.popup()
+.. literalinclude:: src/app.py
+   :lines: 37-69
 
 Both the above functions are same but the difference between them is
 that first one is for an element and second is for a notebook.
@@ -415,79 +169,15 @@ later why we are changing sensitivities of model buttons.
 
 Now let us make some more functions that can modify the interface.
 
-.. code:: python
-
-   def remove_element(wid):
-       global last_widget
-       Aduct.remove_element(last_widget, last_widget.get_parent())
-
-
-   def add_to_paned(wid, position):
-       global last_widget
-       element = new_element()
-       paned = new_paned()
-       if position == 0:
-           paned.set_orientation(0)
-           Aduct.add_to_paned(last_widget, element, paned, 1)
-       elif position == 1:
-           paned.set_orientation(0)
-           Aduct.add_to_paned(last_widget, element, paned, 2)
-       elif position == 2:
-           paned.set_orientation(1)
-           Aduct.add_to_paned(last_widget, element, paned, 1)
-       elif position == 3:
-           paned.set_orientation(1)
-           Aduct.add_to_paned(last_widget, element, paned, 2)
-
-
-   def add_to_notebook(wid, position):
-       global last_widget
-       notebook = new_notebook()
-       notebook.set_tab_pos(position)
-       Aduct.add_to_notebook(last_widget, notebook)
+.. literalinclude:: src/app.py
+   :lines: 72-99
 
 Please read :ref:`functions` to know the details of the functions
 used from Aduct. Next we add more functions for changing child at an
 element, saving and loading interfaces.
 
-.. code:: python
-
-   def change_child_at_element(wid, prov, child_name):
-       global last_widget
-       if last_widget.type == "element":
-           Aduct.change_child_at_element(last_widget, prov, child_name)
-       elif last_widget.type == "notebook":
-           element = new_element()
-           Aduct.change_child_at_element(element, prov, child_name)
-           Aduct.add_to_notebook(element, last_widget)
-           element.show_all()
-
-
-   def save_interface(wid):
-       from json import dump
-
-       with open("aduct.ui", "w") as fp:
-           ui_dict = Aduct.get_interface(top_level)
-           dump(ui_dict, fp, indent=2)
-
-
-   def load_interface(wid):
-       from json import load
-
-       with open("aduct.ui") as fp:
-           ui_dict = load(fp)
-           creator_maps = {
-               "type": {
-                   "element": (new_element, (), {}),
-                   "bin": (new_bin, (), {}),
-                   "notebook": (new_notebook, (), {}),
-                   "paned": (new_paned, (), {}),
-               }
-           }
-           init_maps = {
-               "provider": {"Provider A": A, "Provider B": B, "Provider C": C, None: None}
-           }
-           Aduct.set_interface(ui_dict, top_level, creator_maps, init_maps)
+.. literalinclude:: src/app.py
+   :lines: 102-137
 
 The first function does some straight-forward tasks. It changes a child
 at element when called from element. In case it is called from a
@@ -545,95 +235,8 @@ our application.
 The finishing parts of our application is just connecting everything,
 creating a new window and adding a top level view.
 
-.. code:: python
-
-   provs = [
-       (A, Gtk.ModelButton(text="Entry"), "Entry"), # Making a model-button for each provider.
-       (B, Gtk.ModelButton(text="TextView"), "TextView"),
-       (C, Gtk.ModelButton(text="Label"), "Label"),
-   ]
-
-   prov_grid = Gtk.Grid() # A grid to store them
-
-   for y, (prov, modb, child_name) in enumerate(provs):
-       prov_grid.attach(modb, 0, y, 1, 1)
-       modb.connect("clicked", change_child_at_element, prov, child_name)
-
-   prov_popover = Gtk.PopoverMenu()
-   prov_popover.add(prov_grid)
-   prov_grid.show_all()
-
-   # Pretty same as providers, but for tweak functions.
-   tweaks = {
-       "Element": (Gtk.ModelButton(text="Remove"),),
-       "Notebook": (
-           Gtk.ModelButton(text="Add to top notebook"),
-           Gtk.ModelButton(text="Add to side notebook"),
-       ),
-       "Paned": (
-           Gtk.ModelButton(text="Split left"),
-           Gtk.ModelButton(text="Split right"),
-           Gtk.ModelButton(text="Split up"),
-           Gtk.ModelButton(text="Split down"),
-       ),
-       "Interface": (
-           Gtk.ModelButton(text="Load interface"),
-           Gtk.ModelButton(text="Save interface"),
-       ),
-   }
-
-   tweak_grid = Gtk.Grid()
-
-   for x, title in enumerate(tweaks):
-       label = Gtk.Label(label=title)
-       tweak_grid.attach(label, x, 0, 1, 1)
-       modbs = tweaks[title]
-       for y, modb in enumerate(modbs):
-           tweak_grid.attach(modb, x, y + 1, 1, 1)
-
-   tweak_popover = Gtk.PopoverMenu()
-   tweak_popover.add(tweak_grid)
-   tweak_grid.show_all()
-
-
-   def connect_tweaks():
-       # Connecting model-buttons to required functions.
-       elem_modb = tweaks["Element"][0]
-       elem_modb.connect("clicked", remove_element)
-
-       top_nb_modb = tweaks["Notebook"][0]
-       top_nb_modb.connect("clicked", add_to_notebook, 2)
-       side_nb_modb = tweaks["Notebook"][1]
-       side_nb_modb.connect("clicked", add_to_notebook, 0)
-
-       l_paned_modb = tweaks["Paned"][0]
-       r_paned_modb = tweaks["Paned"][1]
-       u_paned_modb = tweaks["Paned"][2]
-       d_paned_modb = tweaks["Paned"][3]
-
-       # 0, 1, 2, 3 are integer values of Gtk.PositionType.
-       l_paned_modb.connect("clicked", add_to_paned, 0)
-       r_paned_modb.connect("clicked", add_to_paned, 1)
-       u_paned_modb.connect("clicked", add_to_paned, 2)
-       d_paned_modb.connect("clicked", add_to_paned, 3)
-
-       load_modb = tweaks["Interface"][0]
-       save_modb = tweaks["Interface"][1]
-       load_modb.connect("clicked", load_interface)
-       save_modb.connect("clicked", save_interface)
-
-
-   connect_tweaks()
-
-   top_level = new_bin()
-   element = new_element()
-   top_level.add_child(element) # Making a single element and adding it.
-
-   win = Gtk.Window(default_height=500, default_width=750)
-   win.add(top_level)
-   win.connect("destroy", Gtk.main_quit)
-   win.show_all()
-   Gtk.main()
+.. literalinclude:: src/app.py
+   :lines: 140-
 
 Phew... we completed making the application! You might not have
 understood some parts, but still, run the application (run *app.py*) and
@@ -704,4 +307,3 @@ Sometimes it could come out worse, where you should surely retry.
 Sometimes it could come great, where you should share the method with
 others (including us!). Also beauty lies in the eyes of the viewer, not
 in the painting... cheers!
-

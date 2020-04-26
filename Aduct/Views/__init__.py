@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from Aduct.Views.View import View
-from Aduct.Views.Bin import Bin
-from Aduct.Views.Notebook import Notebook
-from Aduct.Views.Paned import Paned
+from .View import View
+from .Bin import Bin
+from .Notebook import Notebook
+from .Paned import Paned

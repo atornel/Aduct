@@ -42,8 +42,8 @@ Learn to make the best use of Aduct with the `docs <https://aduct.readthedocs.io
 
 Contribution
 ------------
-Contributing is easy! A few way of doing so are given below:
- 1. Use Aduct and report us bugs you encounter.
+Contributing is easy! A few ways of doing so are given below:
+ 1. Use Aduct and report us the bugs you encounter.
  2. Request new features.
  3. Improve documentation, add new articles, write better examples.
  4. Spend time with the source code and make it perfect.

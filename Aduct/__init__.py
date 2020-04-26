@@ -20,9 +20,9 @@ import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-from Aduct.Element import Element
-from Aduct.Provider import Provider
-from Aduct.Views import Bin, Paned, Notebook, View
+from .Element import Element
+from .Provider import Provider
+from .Views import Bin, Paned, Notebook, View
 
 
 def add_to_notebook(element, notebook, position=-1):
@@ -50,7 +50,7 @@ def add_to_notebook(element, notebook, position=-1):
         When given :obj:`element` is not a :mod:`.Element`.
     """
     try:
-        type_ = element.type
+        type_ = element.get_type()
     except AttributeError:
         raise TypeError(Notebook.INVALID_CHILD)
 
@@ -254,7 +254,7 @@ def remove_element(element, view):
         The view from which :obj:`element` has to be removed.
     """
 
-    if view.type == "bin":
+    if view.get_type() == "bin":
         element.clear_child()
 
     else:
@@ -263,7 +263,7 @@ def remove_element(element, view):
         if len(children) == 1:
             parent = view.get_parent()
             try:
-                parent.type in ("bin", "notebook", "paned")
+                parent.get_type() in ("bin", "notebook", "paned")
             except AttributeError:
                 pass
             else:
@@ -293,7 +293,7 @@ def replace_child(view, child1, child2):
     """
 
     try:
-        type_ = view.type
+        type_ = view.get_type()
     except AttributeError:
         raise TypeError(f"Expected a Aduct.View but got {view}")
     view.replace_child(child1, child2)
