@@ -13,18 +13,14 @@ Aduct is written in Python and requires Python. Apart from that you
 need Gtk, nothing more. So we directly follow the guidelines required to
 use Gtk.
 
--  **Python 3.5+** If not installed, get the latest version of Python
-   from the `website <http://www.python.org>`__.
+-  **Python 3.5+** If not installed, get the latest version of `Python <http://www.python.org>`__.
 
--  **Gtk 3.0+** The latest version of Gtk is recommended. You can learn
-   from the `Gtk website <http://www.gtk.org>`__ how to install the
-   stable version.
+-  **Gtk 3.0+** The latest version of `Gtk <http://www.gtk.org>`__ is recommended. The instructions to
+   install it are highlighted in the official website.
 
--  **PyGObject** PyGObject provides Python bindings to GI modules (that
-   is Gtk and its friends). If it is your first try with Gtk, you may
-   have to install it. Directly install it using PIP (`PyPI
-   website <https://pypi.org/project/PyGObject/>`__) or follow the
-   instructions from the `official website <https://pygobject.readthedocs.io/>`__.
+-  **PyGObject** `PyGObject <https://pygobject.readthedocs.io/>`__ provides Python bindings to GI modules (that
+   is Gtk and its friends). If this is your first try with Gtk, you may
+   have to install it. Directly install it using `PIP <https://pypi.org/project/PyGObject/>`__.
 
 Getting Aduct
 --------------
