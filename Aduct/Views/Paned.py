@@ -20,9 +20,6 @@ Paned is a view that can hold two children. The two children can either be :mod:
 :mod:`.Element`.
 """
 
-import gi
-
-gi.require_version("Gtk", "3.0")
 from gi.repository import GObject, Gtk
 
 from .View import View

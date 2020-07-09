@@ -19,9 +19,7 @@
 Notebook is a view that can hold only children of type :mod:`.Element`. With this
 restriction, there is no limitation in number of children it can hold.
 """
-import gi
 
-gi.require_version("Gtk", "3.0")
 from gi.repository import GObject, Gtk
 
 from .View import View

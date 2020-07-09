@@ -1,7 +1,7 @@
 import gi
 
 gi.require_versions({"Gtk":"3.0",
-                     "GtkSource": "3.0"})
+                     "GtkSource": "4"})
 from gi.repository import GObject, Gtk, GtkSource
 
 import Aduct
@@ -281,4 +281,4 @@ win = Gtk.Window(default_height=500, default_width=750, title="Movk Image Tool")
 win.add(top_level)
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
-#Gtk.main()
+Gtk.main()

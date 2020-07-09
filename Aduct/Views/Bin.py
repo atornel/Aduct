@@ -20,9 +20,6 @@ Bin is a view that can hold only one child. The child can be either an :mod:`.Vi
 :mod:`.Element`.
 """
 
-import gi
-
-gi.require_version("Gtk", "3.0")
 from gi.repository import GObject, Gtk
 
 from .View import View

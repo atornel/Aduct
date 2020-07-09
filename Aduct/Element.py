@@ -34,15 +34,12 @@ Here only ``header_child`` key is optional.
 
 
 """
-import gi
-
-gi.require_versions({"Gtk": "3.0"})
 from gi.repository import GObject, Gtk
 
 from .Views.View import View
 
 
-class Element(View, Gtk.Bin):
+class Element(View, Gtk.Grid):
 
     __gsignals__ = {
         "action-clicked": (2, None, (Gtk.Button, int)),
@@ -70,7 +67,7 @@ class Element(View, Gtk.Bin):
             which represents :class:`Gtk.PackType.START` or :class:`Gtk.PackType.END` respectively.
             The default value is :class:`Gtk.PackType.START`.
         **kwargs
-            The values to be passed to :class:`Gtk.Bin`, from which :mod:`.Element` is derived.
+            The values to be passed to :class:`Gtk.Grid`, from which :mod:`.Element` is derived.
 
         Attributes
         ----------
@@ -79,12 +76,6 @@ class Element(View, Gtk.Bin):
             *aduct-element-action_button*.
         child_name : :class:`str`
             The name of child held by :obj:`self`.
-        header_grid : :class:`Gtk.Grid`
-            The grid that is used to hold action button and header child. Its default name is
-            *aduct-element-header_grid*.
-        main_grid : :class:`Gtk.Grid`
-            The grid that holds every widget of :obj:`self`. Its default name is
-            *aduct-element-main_grid*
         pack_type : :class:`Gtk.PackType`
             The position of action button in :obj:`self`.
         provider : :mod:`.Provider`
@@ -107,13 +98,12 @@ class Element(View, Gtk.Bin):
             created, but is not attached to the :obj:`self`.
         """
 
-        Gtk.Bin.__init__(self, **kwargs)
+        Gtk.Grid.__init__(self, **kwargs)
         self.set_css_name("aduct-element")
 
         self.action_button = Gtk.Button(name="aduct-element-action_button",
+                                        halign=Gtk.Align.START,
                                         relief=Gtk.ReliefStyle.NORMAL)
-        self.main_grid = Gtk.Grid(name="aduct-element-main_grid")
-        self.header_grid = Gtk.Grid(name="aduct-element-header_grid")
 
         self.pack_type = pack_type
 
@@ -124,14 +114,12 @@ class Element(View, Gtk.Bin):
             self.provider = None
 
         if use_action_button:
-            self.header_grid.attach(self.action_button, self.pack_type, 0, 1, 1)
+            self.enable_action_button()
         self.action_button.connect("button-press-event", self.__handle_event__)
-        self.main_grid.attach(self.header_grid, 0, 0, 1, 1)
-        self.add(self.main_grid)
 
     def __add_child__(self, child):
 
-        self.main_grid.attach(child, 0, 1, 1, 1)
+        self.attach(child, 0, 1, 2, 1)
 
     def __handle_event__(self, button, event):
 
@@ -144,7 +132,7 @@ class Element(View, Gtk.Bin):
         if not child:
             err = "Aduct.Element has no child"
             raise ValueError(err)
-        self.main_grid.remove(child)
+        self.remove(child)
         return child
 
     def __remove_icon__(self):
@@ -160,7 +148,7 @@ class Element(View, Gtk.Bin):
 
         header_child = self.get_header_child()
         if header_child:
-            self.header_grid.remove(header_child)
+            self.remove(header_child)
         return header_child
 
     def clear_child(self):
@@ -175,6 +163,24 @@ class Element(View, Gtk.Bin):
         provider.clear_child(child_dict)
         self.emit("child-cleared")
 
+    def disable_action_button(self):
+
+        """
+        Removes the action button of :obj:`self`. Nothing is done if it is already disabled.
+        """
+
+        if self.get_child_at(self.pack_type, 0):
+            self.remove(self.action_button)
+
+    def enable_action_button(self):
+
+        """
+        Adds the action button of :obj:`self`. Nothing is done if it is already enabled.
+        """
+
+        if not self.get_child_at(self.pack_type, 0):
+            self.attach(self.action_button, self.pack_type, 0, 1, 1)
+
     def get_child(self):
 
         """
@@ -186,7 +192,7 @@ class Element(View, Gtk.Bin):
             The child of :obj:`self` or :obj:`None` if :obj:`self` has no child.
         """
 
-        return self.main_grid.get_child_at(0, 1)
+        return self.get_child_at(0, 1)
 
     def get_child_name(self):
 
@@ -213,7 +219,7 @@ class Element(View, Gtk.Bin):
         """
 
         x_coord = not self.pack_type
-        return self.header_grid.get_child_at(x_coord, 0)
+        return self.get_child_at(x_coord, 0)
 
     def get_icon(self):
 
@@ -399,7 +405,7 @@ class Element(View, Gtk.Bin):
             The new header child of :obj:`self`.
         """
 
-        self.header_grid.attach(header_child, not self.pack_type, 0, 1, 1)
+        self.attach(header_child, not self.pack_type, 0, 1, 1)
 
     def set_icon(self, icon):
 

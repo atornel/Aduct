@@ -1,9 +1,8 @@
 import gi
 
-gi.require_version("GtkSource", "3.0")
+gi.require_version("GtkSource", "4")
 from gi.repository import GtkSource
-import Quanta as Qu
-from Quanta import Gtk
+from Aduct import Gtk
 
 img = Gtk.Image.new_from_file(
     "/home/j_arun_mani/Pictures/Abstracts and Stuff/Abstract 1.jpg"

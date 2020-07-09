@@ -58,10 +58,6 @@ prov = TestProvider()
 
 
 class TestElement(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
-
-        super().__init__(*args, **kwargs)
-        self.element = None
 
     def setUp(self):
 
