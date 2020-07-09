@@ -9,12 +9,6 @@ def new_element():
 
 
 class TestPaned(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
-
-        super().__init__(*args, **kwargs)
-        self.element_1 = None
-        self.element_2 = None
-        self.paned = None
 
     def setUp(self):
 

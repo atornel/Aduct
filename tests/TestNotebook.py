@@ -9,10 +9,6 @@ def new_element():
 
 
 class TestNotebook(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.element = None
-        self.notebook = None
 
     def setUp(self):
 

@@ -9,10 +9,6 @@ def new_element():
 
 
 class TestBin(unittest.TestCase):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.element = None
-        self.bin_ = None
 
     def setUp(self):
 
